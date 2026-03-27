@@ -1,10 +1,11 @@
 title: "Morph Lab"
-subtitle: "Developmental Morphology &amp; Evolution"
+subtitle: "Developmental Morphology & Evolution"
 description: >-
   Research group studying the developmental basis of morphological evolution.
   We combine experimental, comparative, and computational approaches.
 url: "https://morph-lab.github.io"
 baseurl: ""
+repository: "haughn-morph-lab/morph-lab.github.io"
 
 # Theme
 theme: minimal-mistakes-jekyll
@@ -13,7 +14,7 @@ minimal_mistakes_skin: "default"
 # Site Author (PI)
 author:
   name: "Morph Lab"
-  bio: "Developmental Morphology &amp; Evolution"
+  bio: "Developmental Morphology & Evolution"
   location: "Your Institution"
   links:
     - label: "Google Scholar"
@@ -78,7 +79,6 @@ plugins:
   - jekyll-include-cache
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
 
 # Build Settings
 markdown: kramdown
@@ -106,10 +106,6 @@ sass:
 # Outputting
 permalink: /:categories/:title/
 timezone: America/New_York
-
-# Pagination
-paginate: 10
-paginate_path: /page:num/
 
 # HTML Compression
 compress_html:

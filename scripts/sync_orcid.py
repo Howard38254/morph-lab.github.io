@@ -124,7 +124,7 @@ def main():
     publications = parse_works(data)
     print(f"Found {len(publications)} publications.")
 
-    os.makedirs(os.path.dirname(OUTPUT_FILE) if os.path.dirname(OUTPUT_FILE) else ".", exist_ok=True)
+    os.makedirs(os.path.dirname(OUTPUT_FILE) or ".", exist_ok=True)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(publications, f, indent=2, ensure_ascii=False)
         f.write("\n")
