@@ -3,7 +3,7 @@ layout: splash
 permalink: /
 hidden: true
 header:
-  overlay_color: "#2e6da4"
+  overlay_color: "#800000"
   overlay_filter: "0.4"
   actions:
     - label: "Our Research"
@@ -11,23 +11,23 @@ header:
     - label: "Meet the Team"
       url: /people/
 excerpt: >-
-  We study how developmental processes shape morphological diversity and
-  how these processes evolve across lineages.
+  We are a group of researchers interested in how biology can inform the design of intelligent engineered platforms
+  through exploring the interconnectivity of sensing, control, and morphology in natural systems.
 
 feature_row:
   - alt: "Research"
     title: "Research"
     excerpt: >-
-      Integrating experimental, comparative, and computational methods to
-      understand the developmental basis of morphological evolution.
+      Exploring the interconnectivity of sensing, control, and morphology in
+      natural systems to inform intelligent engineering.
     url: /research/
     btn_label: "Learn More"
     btn_class: "btn--primary"
   - alt: "People"
     title: "People"
     excerpt: >-
-      A collaborative group of graduate students, postdocs, and
-      undergraduates passionate about evolutionary developmental biology.
+      A collaborative group of students and researchers at the
+      Mechanics of Reconfigurable Platform Heuristics Lab.
     url: /people/
     btn_label: "Meet the Team"
     btn_class: "btn--primary"

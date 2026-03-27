@@ -7,9 +7,9 @@ toc_label: "Projects"
 toc_sticky: true
 ---
 
-Our lab investigates the developmental mechanisms that generate and constrain
-morphological diversity. We combine experimental embryology, comparative genomics,
-and computational modeling to understand how development evolves.
+Our multidisciplinary lab draws inspiration from biological systems to investigate
+the interactions between sensing, morphology, and control to develop novel intelligent
+systems.
 
 ---
 
