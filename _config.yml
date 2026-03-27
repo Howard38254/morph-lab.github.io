@@ -12,8 +12,8 @@ theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "default"
 
 # Site Author (PI)
-author: "Dr. Kevin PT Haughn"
-  name: "Morph Lab"
+author:
+  name: "Dr. Kevin PT Haughn"
   bio: "Mechanics Of Reconfigurable Platform Heuristics"
   location: "Rose-Hulman Institute of Technology, Terre Haute, IN"
   links:
