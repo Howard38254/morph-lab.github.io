@@ -1,0 +1,33 @@
+# People data file
+# Add/edit entries here to update the People page.
+# Photos should be placed in assets/images/people/
+
+pi:
+  - name: "PI Name"
+    role: "Principal Investigator"
+    bio: >-
+      Brief bio of the PI. Research interests, career highlights, etc.
+    photo: /assets/images/people/pi.jpg
+    email: "pi@institution.edu"
+    orcid: "https://orcid.org/0000-0002-8219-8983"
+    scholar: "https://scholar.google.com/citations?user=waDZzkAAAAAJ&hl=en"
+    website: ""
+
+grad_students:
+  - name: "Graduate Student 1"
+    role: "PhD Candidate"
+    bio: >-
+      Research interests and brief description.
+    photo: /assets/images/people/placeholder.jpg
+    email: ""
+    joined: 2022
+
+postdocs: []
+
+undergrads: []
+
+alumni:
+  - name: "Former Lab Member"
+    role: "PhD"
+    year_left: 2024
+    current_position: "Postdoc, University Name"

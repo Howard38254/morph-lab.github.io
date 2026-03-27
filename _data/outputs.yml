@@ -1,0 +1,19 @@
+# Lab Outputs — non-peer-reviewed / internal / in-progress
+# These appear in the "Lab Outputs" section of the Publications page.
+# Add entries manually in reverse-chronological order.
+
+- title: "Example Preprint Title"
+  authors: "Author A, Author B, PI Name"
+  year: 2025
+  type: "preprint"    # preprint | thesis | report | dataset | software | other
+  venue: "bioRxiv"
+  url: "https://doi.org/10.1101/xxxx"
+  description: "Brief description of this work."
+
+- title: "Example Undergraduate Thesis"
+  authors: "Student Name"
+  year: 2024
+  type: "thesis"
+  venue: "Institution Name"
+  url: ""
+  description: ""
