@@ -1,6 +1,15 @@
 ---
 ---
 
+/* Color Overrides - Muted Grey/Rose-Hulman Palette */
+$base-color: #f2f3f3 !default;
+$text-color: #494e52 !default; /* Toned down grey instead of black */
+$muted-text-color: #6a6e71 !default;
+$link-color: #607d8b !default; /* Muted Blue-Grey instead of bright blue */
+$link-color-hover: darken($link-color, 15%) !default;
+$primary-color: #800000 !default; /* Rose-Hulman Maroon */
+$border-color: #e2e4e6 !default;
+
 /* Main container width override */
 $max-width: 2400px; /* Increased from 1400px to allow for a much wider layout */
 
