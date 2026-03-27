@@ -1,8 +1,8 @@
 title: "Morph Lab"
-subtitle: "Developmental Morphology & Evolution"
+subtitle: "Mechanics Of Reconfigurable Platform Heuristics"
 description: >-
-  Research group studying the developmental basis of morphological evolution.
-  We combine experimental, comparative, and computational approaches.
+  We are a group of researchers interested in how biology can inform the design of intelligent engineered platforms
+  through sensing, control, and morphology.
 url: "https://morph-lab.github.io"
 baseurl: ""
 repository: "haughn-morph-lab/morph-lab.github.io"
@@ -12,10 +12,10 @@ theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "default"
 
 # Site Author (PI)
-author:
+author: "Dr. Kevin PT Haughn"
   name: "Morph Lab"
-  bio: "Developmental Morphology & Evolution"
-  location: "Your Institution"
+  bio: "Mechanics Of Reconfigurable Platform Heuristics"
+  location: "Rose-Hulman Institute of Technology, Terre Haute, IN"
   links:
     - label: "Google Scholar"
       icon: "fas fa-fw fa-graduation-cap"

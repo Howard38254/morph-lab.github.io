@@ -6,25 +6,58 @@ pi:
   - name: "PI Name"
     role: "Principal Investigator"
     bio: >-
-      Brief bio of the PI. Research interests, career highlights, etc.
-    photo: /assets/images/people/pi.jpg
-    email: "pi@institution.edu"
+      Dr. Kevin Haughn is an Assistant Professor of Mechanical Engineering. 
+      Kevin also volunteers as a pole vault coach for the RHIT track team. 
+      He earned his doctorate in aerospace engineering at the University of Michigan, where his research focused 
+      on using machine learning to develop controllers for autonomic morphing wings in a dynamic aerial environment.
+      After defending his PhD, Kevin worked for the U.S. Army Research Laboratory, where his research incorporated 
+      avian-inspired morphologies and control surface design to improve small aircraft maneuverability and adaptability.
+    photo: /assets/images/people/Haughn_Kevin.jpg
+    email: "haughn@rose-hulman.edu"
     orcid: "https://orcid.org/0000-0002-8219-8983"
     scholar: "https://scholar.google.com/citations?user=waDZzkAAAAAJ&hl=en"
-    website: ""
+    website: "https://haughn-morph-lab.github.io/morph-lab.github.io"
 
 grad_students:
-  - name: "Graduate Student 1"
-    role: "PhD Candidate"
+  - name: "Kaleb Bordner"
+    role: "PhD Candidate Affiliate"
+    institution: "University of California Davis"
     bio: >-
       Research interests and brief description.
     photo: /assets/images/people/placeholder.jpg
     email: ""
-    joined: 2022
+    joined: 2023
+
+  - name: "Adam Zhu"
+    role: "PhD Candidate Affiliate"
+    institution: "University of California Davis"
+    bio: >-
+      Research interests and brief description.
+    photo: /assets/images/people/placeholder.jpg
+    email: ""
+    joined: 2023
 
 postdocs: []
 
-undergrads: []
+undergrads:
+  - name: "Example Name"
+    role: "Undergraduate Researcher"
+    institution: "Rose-Hulman Institute of Technology"
+    bio: >-
+      Research interests and brief description.
+    photo: /assets/images/people/placeholder.jpg
+    email: ""
+    joined: 2025
+
+affiliates:
+  - name: "Dr. Christina Harvey"
+    role: "Affiliate Researcher"
+    institution: "University of California Davis"
+    bio: >-
+      Research interests and brief description.
+    photo: /assets/images/people/placeholder.jpg
+    email: ""
+    joined: 2023
 
 alumni:
   - name: "Former Lab Member"
