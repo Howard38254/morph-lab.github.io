@@ -1,0 +1,37 @@
+/* Main container width override */
+$max-width: 2400px; /* Increased from 1400px to allow for a much wider layout */
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+/* Layout overrides */
+.page__inner-wrapper {
+  @media (min-width: 64em) {
+    max-width: 2400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Sidebar width override - only applies if author_profile: true is enabled in _config.yml */
+.sidebar {
+  @media (min-width: 64em) {
+    width: 300px; 
+    margin-right: 2%;
+  }
+}
+
+/* Main content width when sidebar is present */
+.page__content {
+  @media (min-width: 64em) {
+    width: calc(100% - 350px); 
+    float: none; 
+  }
+}
+
+.archive__item-teaser {
+  max-height: 200px;
+}
+

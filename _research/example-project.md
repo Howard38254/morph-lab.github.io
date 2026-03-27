@@ -1,14 +1,21 @@
 ---
-title: "Morphological Plasticity in [Organism]"
-excerpt: "How does developmental plasticity generate morphological variation within and across populations?"
+title: "Put your project title here"
+excerpt: "quick summary of the project research question"
 order: 1
 tags:
-  - developmental plasticity
-  - evo-devo
-  - comparative morphology
+  - some
+  - key
+  - words or phrases
 header:
   teaser: /assets/images/research-placeholder.jpg
 ---
+## Lead Author
+
+Put your name here
+
+## Collaborators
+
+Be sure to credit your collaborators here.
 
 ## Overview
 
@@ -17,9 +24,9 @@ What approaches do you use?
 
 ## Methods
 
-- Experimental embryology
-- Comparative morphometrics
-- Genomic/transcriptomic profiling
+- How did you do it?
+- What techniques are you using?
+
 
 ## Key Findings
 

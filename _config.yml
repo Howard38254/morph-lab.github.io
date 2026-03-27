@@ -1,4 +1,4 @@
-title: "Morph Lab"
+title: "MORPH Lab"
 subtitle: "Mechanics Of Reconfigurable Platform Heuristics"
 description: >-
   We are a group of researchers interested in how biology can inform the design of intelligent engineered platforms
@@ -9,7 +9,7 @@ repository: "haughn-morph-lab/morph-lab.github.io"
 
 # Theme
 theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "contrast"
 
 # Site Author (PI)
 author:

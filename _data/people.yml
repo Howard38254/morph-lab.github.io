@@ -6,12 +6,10 @@ pi:
   - name: "Dr. Kevin PT Haughn"
     role: "Principal Investigator"
     bio: >-
-      Dr. Kevin Haughn is an Assistant Professor of Mechanical Engineering. 
-      Kevin also volunteers as a pole vault coach for the RHIT track team. 
-      He earned his doctorate in aerospace engineering at the University of Michigan, where his research focused 
-      on using machine learning to develop controllers for autonomic morphing wings in a dynamic aerial environment.
-      After defending his PhD, Kevin worked for the U.S. Army Research Laboratory, where his research incorporated 
-      avian-inspired morphologies and control surface design to improve small aircraft maneuverability and adaptability.
+      Hi, I'm Dr. Kevin Haughn. I'm an Assistant Professor of Mechanical Engineering at Rose-Hulman Institute of Technology. 
+      I'm interested in how nature has learned to solve complex problems and am curious about how we can use those solutions
+      in our own robotic designs. I'm particularly interested in morphology and maneuverability and believe it is through 
+      holistic investigation of multidisciplinary sense -> compute -> adapt systems that can lead to the most valuable results.
     photo: /assets/images/people/Haughn_Kevin.jpg
     email: "haughn@rose-hulman.edu"
     orcid: "https://orcid.org/0000-0002-8219-8983"
@@ -20,7 +18,7 @@ pi:
 
 grad_students:
   - name: "Kaleb Bordner"
-    role: "PhD Candidate Affiliate"
+    role: "PhD Candidate Affiliate (UCDavis)"
     institution: "University of California Davis"
     bio: >-
       Research interests and brief description.
@@ -29,7 +27,7 @@ grad_students:
     joined: 2023
 
   - name: "Adam Zhu"
-    role: "PhD Candidate Affiliate"
+    role: "PhD Candidate Affiliate (UCDavis)"
     institution: "University of California Davis"
     bio: >-
       Research interests and brief description.
