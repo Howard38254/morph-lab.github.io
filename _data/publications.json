@@ -1,1 +1,110 @@
-[]
+[
+  {
+    "title": "Soft-backing enhanced composite electroadhesion",
+    "authors": "",
+    "journal": "MRS Communications",
+    "year": "2026",
+    "type": "journal-article",
+    "doi": "10.1557/s43579-025-00911-w",
+    "url": "https://doi.org/10.1557/s43579-025-00911-w"
+  },
+  {
+    "title": "Ball-and-Socket joint produces longitudinal and lateral control with a horizontal feathered tail for small uncrewed aerial systems",
+    "authors": "",
+    "journal": "International Journal of Micro Air Vehicles",
+    "year": "2025",
+    "type": "journal-article",
+    "doi": "10.1177/17568293251340095",
+    "url": "https://doi.org/10.1177/17568293251340095"
+  },
+  {
+    "title": "Electrostatic adhesion mitigates aerodynamic losses from gap formations in feathered wings",
+    "authors": "",
+    "journal": "Communications Engineering",
+    "year": "2025",
+    "type": "journal-article",
+    "doi": "10.1038/s44172-025-00452-z",
+    "url": "https://doi.org/10.1038/s44172-025-00452-z"
+  },
+  {
+    "title": "Rotational bistable mechanisms for morphing wings and beyond",
+    "authors": "",
+    "journal": "Communications Engineering",
+    "year": "2025",
+    "type": "journal-article",
+    "doi": "10.1038/s44172-025-00495-2",
+    "url": "https://doi.org/10.1038/s44172-025-00495-2"
+  },
+  {
+    "title": "Super-Turing synaptic resistor circuits for intelligent morphing wing",
+    "authors": "",
+    "journal": "Communications Engineering",
+    "year": "2025",
+    "type": "journal-article",
+    "doi": "10.1038/s44172-025-00437-y",
+    "url": "https://doi.org/10.1038/s44172-025-00437-y"
+  },
+  {
+    "title": "Active adhesion improves adaptive flight for feathered wings",
+    "authors": "",
+    "journal": "",
+    "year": "2024",
+    "type": "preprint",
+    "doi": "10.21203/rs.3.rs-5167087/v1",
+    "url": "https://doi.org/10.21203/rs.3.rs-5167087/v1"
+  },
+  {
+    "title": "Deep learning reduces sensor requirements for gust rejection on a small uncrewed aerial vehicle morphing wing",
+    "authors": "",
+    "journal": "Communications Engineering",
+    "year": "2024",
+    "type": "journal-article",
+    "doi": "10.1038/s44172-024-00201-8",
+    "url": "https://doi.org/10.1038/s44172-024-00201-8"
+  },
+  {
+    "title": "Deep reinforcement learning achieves multifunctional morphing airfoil control",
+    "authors": "",
+    "journal": "Journal of Composite Materials",
+    "year": "2023",
+    "type": "journal-article",
+    "doi": "10.1177/00219983221137644",
+    "url": "https://doi.org/10.1177/00219983221137644"
+  },
+  {
+    "title": "Sensory Adaptation in Biomolecular Memristors Improves Reservoir Computing Performance",
+    "authors": "",
+    "journal": "Advanced Intelligent Systems",
+    "year": "2023",
+    "type": "journal-article",
+    "doi": "10.1002/aisy.202300049",
+    "url": "https://doi.org/10.1002/aisy.202300049"
+  },
+  {
+    "title": "Autonomous Learning in a Pseudo-Episodic Physical Environment",
+    "authors": "",
+    "journal": "Journal of Intelligent & Robotic Systems",
+    "year": "2022",
+    "type": "journal-article",
+    "doi": "10.1007/s10846-022-01577-5",
+    "url": "https://doi.org/10.1007/s10846-022-01577-5"
+  },
+  {
+    "title": "Si-based self-programming neuromorphic integrated circuits for intelligent morphing wings",
+    "authors": "",
+    "journal": "Journal of Composite Materials",
+    "year": "2022",
+    "type": "journal-article",
+    "doi": "10.1177/00219983221134929",
+    "url": "https://doi.org/10.1177/00219983221134929"
+  },
+  {
+    "title": "HORIZONTAL PLANFORM MORPHING TAIL FOR AN AVIAN INSPIRED UAV USING SHAPE MEMORY ALLOYS",
+    "authors": "",
+    "journal": "ASME Conference on Smart Materials, Adaptive Structures and Intelligent System",
+    "year": "2018",
+    "type": "conference-paper",
+    "doi": "",
+    "url": "https://www.webofscience.com/api/gateway?GWVersion=2&SrcApp=Publons&SrcAuth=Publons_CEL&KeyUT=WOS:000457516500036&DestLinkType=FullRecord&DestApp=WOS_CPL"
+  }
+]
