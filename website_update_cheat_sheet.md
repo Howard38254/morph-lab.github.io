@@ -43,6 +43,7 @@ This file controls the **entire site**. Only change this when you want to:
 | **Adjust Site Width/Bio layout** | `.scss` | `assets/css/main.scss` |
 | **Change People card size/grid** | `.md` | `_pages/people.md` |
 | **Fix Live Site URL/Basepath** | `.yml` | `_config.yml` |
+| **Fix Theme/Color Discrepancy** | `.yml` | `_config.yml` |
 
 ---
 

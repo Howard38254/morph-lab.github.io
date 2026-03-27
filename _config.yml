@@ -8,8 +8,7 @@ baseurl: "/morph-lab.github.io"
 repository: "haughn-morph-lab/morph-lab.github.io"
 
 # Theme
-#remote_theme: "mmistakes/minimal-mistakes"
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "contrast"
 
 
