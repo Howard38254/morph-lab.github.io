@@ -42,6 +42,16 @@ This file controls the **entire site**. Only change this when you want to:
 | **Change the site's title or subtitle** | `.yml` | `_config.yml` |
 | **Adjust Site Width/Bio layout** | `.scss` | `assets/css/main.scss` |
 | **Change People card size/grid** | `.md` | `_pages/people.md` |
+| **Fix Live Site URL/Basepath** | `.yml` | `_config.yml` |
+
+---
+
+## 🛠️ Important: `url` and `baseurl` in `_config.yml`
+When deploying to GitHub Pages, the site's address is often `https://haughn-morph-lab.github.io/morph-lab.github.io/`.
+*   **url:** `https://haughn-morph-lab.github.io`
+*   **baseurl:** `/morph-lab.github.io`
+
+If the live site is not showing updates or images are broken, check that these match your repository name. Always use the `| relative_url` filter in Markdown files for links and images to ensure they work both locally and on GitHub.
 
 ---
 

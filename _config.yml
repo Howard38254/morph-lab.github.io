@@ -3,8 +3,8 @@ subtitle: "Mechanics Of Reconfigurable Platform Heuristics"
 description: >-
   We are a group of researchers interested in how biology can inform the design of intelligent engineered platforms
   through exploring the interconnectivity of sensing, control, and morphology in natural systems.
-url: "https://morph-lab.github.io"
-baseurl: ""
+url: "https://haughn-morph-lab.github.io"
+baseurl: "/morph-lab.github.io"
 repository: "haughn-morph-lab/morph-lab.github.io"
 
 # Theme
