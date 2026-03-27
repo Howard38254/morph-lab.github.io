@@ -11,6 +11,7 @@ repository: "haughn-morph-lab/morph-lab.github.io"
 theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "contrast"
 
+
 # Site Author (PI)
 author:
   name: "Dr. Kevin PT Haughn"
@@ -77,6 +78,7 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-include-cache
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
 
