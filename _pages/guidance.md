@@ -88,7 +88,7 @@ Sharing your work in a way that helps people understand why they should care:
 - **Best visual approach**
   - Graphs and charts can be more intuitive/digestible than numerical tables
     - Bar graphs show comparisons
-    - Line graphs show trends over time
+    - Line graphs show relationships between variables (x vs. y)
     - Pie graphs show parts of a whole
   - Color can be used to emphasize important information
 
