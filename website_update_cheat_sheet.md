@@ -42,6 +42,7 @@ This file controls the **entire site**. Only change this when you want to:
 | **Change the site's title or subtitle** | `.yml` | `_config.yml` |
 | **Adjust Site Width/Bio layout** | `.scss` | `assets/css/main.scss` |
 | **Change People card size/grid** | `.md` | `_pages/people.md` |
+| **Update Research Guidance** | `.md` | `_pages/guidance.md` |
 | **Fix Live Site URL/Basepath** | `.yml` | `_config.yml` |
 | **Fix Theme/Color Discrepancy** | `.yml` | `_config.yml` |
 
