@@ -96,6 +96,7 @@ permalink: /people/
       {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
       {% if person.orcid %}<a href="{{ person.orcid }}" target="_blank">ORCID</a>{% endif %}
       {% if person.scholar %}<a href="{{ person.scholar }}" target="_blank">Scholar</a>{% endif %}
+      {% if person.faculty %}<a href="{{ person.faculty }}" target="_blank">Faculty Profile</a>{% endif %}
       {% if person.website %}<a href="{{ person.website }}" target="_blank">Website</a>{% endif %}
     </div>
   </div>
