@@ -37,7 +37,7 @@ This file controls the **entire site**. Only change this when you want to:
 | **Change the text on the Home page** | `.md` | `index.md` |
 | **Add a new student or researcher** | `.yml` | `_data/people.yml` |
 | **Add a detailed research project** | `.md` | `_research/project-slug.md` |
-| **Add a non-ORCID publication** | `.yml` | `_data/outputs.yml` |
+| **Add a poster / preprint / thesis** | `.md/.yml` | `_showcase/` or `_data/outputs.yml` |
 | **Change the top navigation menu** | `.yml` | `_data/navigation.yml` |
 | **Change the site's title or subtitle** | `.yml` | `_config.yml` |
 | **Adjust Site Width/Bio layout** | `.scss` | `assets/css/main.scss` |

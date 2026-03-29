@@ -7,7 +7,5 @@ main:
     url: /people/
   - title: "Publications"
     url: /publications/
-  - title: "Outputs"
+  - title: "Outputs & Showcase"
     url: /outputs/
-  - title: "Showcase"
-    url: /showcase/
