@@ -68,8 +68,9 @@ Sharing your work in a way that helps people understand why they should care:
   - What are their values?
     - What needs are most important to them?
 - **Formulate ideas to resonate with your audience**
-- **Communicate approach**
   - Consider competition and the current state of the art
+  - Why is your solution relevant to their specific needs?
+- **Communicate approach**
   - Experiment design
   - Technology used
   - Note any limitations
