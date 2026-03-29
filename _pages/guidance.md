@@ -64,17 +64,15 @@ Sharing your work in a way that helps people understand why they should care:
 
 - **Be familiar with the audience and their values**
   - Who are the stakeholders?
-  - Recognize audience's backgrounds
+  - Recognize audience backgrounds
   - What are their values?
     - What needs are most important to them?
 - **Formulate ideas to resonate with your audience**
 - **Communicate approach**
-  - Methods
-  - Approach
-    - Communicating value by comparing your approach to competition/current SOA
-    - Note disadvantages/limitations as well
+  - Consider competition and the current state of the art
   - Experiment design
   - Technology used
+  - Note any limitations
 
 ---
 
@@ -99,7 +97,7 @@ Sharing your work in a way that helps people understand why they should care:
 
 When sharing your work, think about:
 - What are your goals for sharing?
-- Look for groups that show most interest
+- Look for groups that show the greatest interest
 - Highlight key findings
 
 There are three key audiences to share your research with to maximize impact:
