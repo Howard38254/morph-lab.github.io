@@ -7,7 +7,7 @@ toc_label: "On this page"
 toc_sticky: true
 ---
 
-This page provides a framework for how to think about, structure, and present your research projects effectively.
+This page provides a framework for how to think about, structure, and present your research effectively.
 
 ---
 
