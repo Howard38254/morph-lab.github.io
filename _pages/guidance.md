@@ -70,15 +70,15 @@ While habits can be developed individually, they are reinforced in combination. 
 
 ## Resilience In Research
 
-- **Assertiveness**
+- **Assertiveness:**
   Being assertive in your own needs when communicating expectations in collaboration offers the opportunity for balanced work.
-- **Adaptability**
+- **Adaptability:**
   Failure is a big part of research, and recognizing its value is crucial. Plans may need to be adjusted to meet changing needs.
-- **Resourcefulness**
+- **Resourcefulness:**
   Recognize the tools and expertise available to you and your team and plan accordingly.
-- **Confidence**
+- **Confidence:**
   This doesn't mean always being right, but recognizing that you are still making progress even when you are wrong.
-- **Don't have to go it alone**
+- **Don't have to go it alone:**
   You have a diverse team of people to lean on, and you can always ask for help.
 
 ---
@@ -153,7 +153,8 @@ Your research is structured to develop a new technology with potential commercia
 - **Looking to:**
   - Start a company
   - Design a new product
-- **Pitch ideas to potential funders through competitions**
+- **Try:**
+  - Pitch ideas to potential funders through competitions
 
 ---
 
