@@ -61,30 +61,30 @@ While habits can be developed individually, they are reinforced in combination. 
 ## SMART goals for structuring research
 
 - **Specific**
-  - Is your goal concise and clear?
+  Is your goal concise and clear?
 - **Measurable**
-  - How can you quantify your steps?
+  How can you quantify your steps?
 - **Achievable**
-  - Is this realistic for the timeline?
+  Is this realistic for the timeline?
 - **Relevant**
-  - Why are you setting this goal?
+  Why are you setting this goal?
 - **Timebound**
-  - What is the timeline?
+  What is the timeline?
 
 ---
 
 ## Resilience In Research
 
 - **Assertiveness**
-  - Being assertive in your own needs when communicating expectations in collaboration offers the opportunity for balanced work.
+  Being assertive in your own needs when communicating expectations in collaboration offers the opportunity for balanced work.
 - **Adaptability**
-  - Failure is a big part of research, and recognizing its value is crucial. Plans may need to be adjusted to meet changing needs.
+  Failure is a big part of research, and recognizing its value is crucial. Plans may need to be adjusted to meet changing needs.
 - **Resourcefulness**
-  - Recognize the tools and expertise available to you and your team and plan accordingly.
+  Recognize the tools and expertise available to you and your team and plan accordingly.
 - **Confidence**
-  - This doesn't mean always being right, but recognizing that you are still making progress even when you are wrong.
+  This doesn't mean always being right, but recognizing that you are still making progress even when you are wrong.
 - **Don't have to go it alone**
-  - You have a diverse team of people to lean on, and you can always ask for help.
+  You have a diverse team of people to lean on, and you can always ask for help.
 
 ---
 
@@ -168,4 +168,5 @@ initial goals can help ensure you stay on track, and reassessing those goals can
 
 ---
 
-Much of the framework presented here was adapted from the [KEEN Entrepreneurial Mindset Framework](https://engineeringunleashed.com/card/1). Please visit their website for more information.
+Much of the framework presented here was adapted from the [KEEN Framework](https://engineeringunleashed.com/framework).
+
