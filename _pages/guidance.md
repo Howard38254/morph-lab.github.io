@@ -28,6 +28,36 @@ When looking to understand the opportunity, we can ask about applications of the
 
 ---
 
+## Forming Good Habits
+
+While habits can be developed individually, they are reinforced in combination. The Entrepreneurial Mindset (EM) can be developed through intentional practice.
+
+### Curiosity: Fueling exploration and revealing opportunities
+- **Inquisitiveness:** Applies curiosity about our continuously changing world.
+- **Contrarian Thinking:** Explores alternative or disruptive views of current or accepted solutions.
+- **Opportunity Seeking:** Identifies trends and unmet needs to uncover new opportunities.
+- **Experimentation:** Constantly experiments and iterates to test new ideas and explore what-ifs.
+- **Confronting Ambiguity:** Fearlessly operates with care in complex and uncertain environments.
+- **Future-Minded:** Considers emerging trends in people, systems, and environments.
+
+### Connections: Integrating perspectives and driving innovation
+- **Creativity:** Integrates information from disparate sources to spark new ideas.
+- **Systems Thinking:** Recognizes interdependencies in systems and identifies leverage points.
+- **Knowledge Synthesis:** Combines ideas, information, and experiences to form new understanding.
+- **Implications Thinking:** Anticipates the long-term impacts and consequences of actions.
+- **Strategic Thinking:** Develops long-term strategies with clear milestones.
+- **Risk Awareness:** Proactively incorporates risk management into decision-making.
+
+### Creating Value: Delivering meaningful outcomes
+- **Value Awareness:** Focuses on solutions where extraordinary value can be created.
+- **Customer-Centric Thinking:** Frames efforts in terms of stakeholder’s actual needs.
+- **Impact Thinking:** Seeks outcomes that produce meaningful and scalable benefits for others.
+- **Socially Minded:** Prioritizes creating meaningful and positive societal impacts.
+- **Persistence:** Maintains resilience to achieve goals in the face of obstacles and failures.
+- **Resourcefulness:** Solves problems creatively with available resources.
+
+---
+
 ## SMART goals for structuring research
 
 - **Specific**
