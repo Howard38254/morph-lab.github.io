@@ -60,16 +60,11 @@ While habits can be developed individually, they are reinforced in combination. 
 
 ## SMART goals for structuring research
 
-- **Specific**
-  Is your goal concise and clear?
-- **Measurable**
-  How can you quantify your steps?
-- **Achievable**
-  Is this realistic for the timeline?
-- **Relevant**
-  Why are you setting this goal?
-- **Timebound**
-  What is the timeline?
+- **Specific:** Is your goal concise and clear?
+- **Measurable:** How can you quantify your progress?
+- **Achievable:** Is this realistic for the timeline?
+- **Relevant:** Why are you setting this goal?
+- **Timebound:** What is the timeline?
 
 ---
 
