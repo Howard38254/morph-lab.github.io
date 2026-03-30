@@ -162,4 +162,10 @@ Your research is structured to develop a new technology with potential commercia
 
 ---
 
-Finally, revisit the goals you set using the entrepreneurial mindset to determine which of your results bring most value to your stakeholders.
+Finally, revisit the goals you set using the entrepreneurial mindset to determine which of your results bring most value
+to your stakeholders. Research is often an iterative process that can lead to many different outcomes. Coming back to your 
+initial goals can help ensure you stay on track, and reassessing those goals can help you identify new opportunities.
+
+---
+
+Much of the framework presented here was adapted from the [KEEN Entrepreneurial Mindset Framework](https://engineeringunleashed.com/card/1). Please visit their website for more information.
