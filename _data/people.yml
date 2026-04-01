@@ -22,9 +22,9 @@ grad_students:
     role: "PhD Candidate Affiliate (UCDavis)"
     institution: "University of California Davis"
     bio: >-
-      Research interests and brief description.
+      My research concerns the design and development of control strategies for morphing bio-informed fixed wing aircraft.
     photo: /assets/images/people/placeholder.jpg
-    email: ""
+    email: "kkbordner@ucdavis.edu"
     joined: 2023
 
   - name: "Adam Zhu"
@@ -33,10 +33,9 @@ grad_students:
     bio: >-
       Research interests and brief description.
     photo: /assets/images/people/placeholder.jpg
-    email: ""
+    email: "Lszhu@ucdavis.edu"
+    orcid: "https://orcid.org/0009-0003-8318-3657"
     joined: 2023
-
-postdocs: []
 
 undergrads:
   - name: "Howard Huang"
@@ -66,15 +65,23 @@ undergrads:
     email: ""
     joined: 2025
 
+postdocs: []
+
 affiliates:
   - name: "Dr. Christina Harvey"
     role: "Affiliate Researcher"
     institution: "University of California Davis"
     bio: >-
-      Research interests and brief description.
-    photo: /assets/images/people/placeholder.jpg
-    email: ""
+      I study how, when, and why animals adjust their morphology in flight. My research aims to inspire highly 
+      maneuverable and adaptable uncrewed aerial vehicles (UAVs) and to advance our understanding of biological flight. 
+      The work integrates biological and engineering knowledge and techniques.
+    photo: /assets/images/people/Harvey_Christina.jpg
+    email: "harvey@ucdavis.edu"
     joined: 2023
+    orcid: "https://orcid.org/0000-0002-2830-0844"
+    scholar: "https://scholar.google.com/citations?user=_uRCRPgAAAAJ&hl=en&oi=sra"
+    faculty: "https://mae.ucdavis.edu/people/christina-harvey"
+    website: "https://birdlab.notion.site/"
 
 alumni:
   - name: "Former Lab Member"

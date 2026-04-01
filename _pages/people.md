@@ -131,6 +131,26 @@ permalink: /people/
 
 ---
 
+## Undergraduate Researchers
+
+{% assign undergrads = site.data.people.undergrads %}
+{% if undergrads and undergrads.size > 0 %}
+<div class="person-grid">
+{% for person in undergrads %}
+<div class="person-card">
+  {% if person.photo %}<img src="{{ person.photo | relative_url }}" alt="{{ person.name }}" onerror="this.style.display='none'">{% endif %}
+  <h3>{{ person.name }}</h3>
+  <div class="role">{{ person.role }}</div>
+  {% if person.bio %}<div class="bio">{{ person.bio }}</div>{% endif %}
+</div>
+{% endfor %}
+</div>
+{% else %}
+*No undergraduate researchers listed yet.*
+{% endif %}
+
+---
+
 ## Postdoctoral Researchers
 
 {% assign postdocs = site.data.people.postdocs %}
@@ -151,22 +171,29 @@ permalink: /people/
 
 ---
 
-## Undergraduate Researchers
+## Affiliated Researchers
 
-{% assign undergrads = site.data.people.undergrads %}
-{% if undergrads and undergrads.size > 0 %}
+{% assign affiliates = site.data.people.affiliates %}
+{% if affiliates and affiliates.size > 0 %}
 <div class="person-grid">
-{% for person in undergrads %}
+{% for person in affiliates %}
 <div class="person-card">
   {% if person.photo %}<img src="{{ person.photo | relative_url }}" alt="{{ person.name }}" onerror="this.style.display='none'">{% endif %}
   <h3>{{ person.name }}</h3>
   <div class="role">{{ person.role }}</div>
   {% if person.bio %}<div class="bio">{{ person.bio }}</div>{% endif %}
+    <div class="person-links">
+      {% if person.email %}<a href="mailto:{{ person.email }}">Email</a>{% endif %}
+      {% if person.orcid %}<a href="{{ person.orcid }}" target="_blank">ORCID</a>{% endif %}
+      {% if person.scholar %}<a href="{{ person.scholar }}" target="_blank">Scholar</a>{% endif %}
+      {% if person.faculty %}<a href="{{ person.faculty }}" target="_blank">Faculty Profile</a>{% endif %}
+      {% if person.website %}<a href="{{ person.website }}" target="_blank">Website</a>{% endif %}
+    </div>
 </div>
 {% endfor %}
 </div>
 {% else %}
-*No undergraduate researchers listed yet.*
+*No affiliated researchers listed yet.*
 {% endif %}
 
 ---
