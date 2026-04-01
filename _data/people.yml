@@ -19,7 +19,7 @@ pi:
 
 grad_students:
   - name: "Kaleb Bordner"
-    role: "PhD Candidate Affiliate (UCDavis)"
+    role: "PhD Candidate Affiliate (UC Davis)"
     institution: "University of California Davis"
     bio: >-
       My research concerns the design and development of control strategies for morphing bio-informed fixed wing aircraft.
@@ -28,7 +28,7 @@ grad_students:
     joined: 2023
 
   - name: "Adam Zhu"
-    role: "PhD Candidate Affiliate (UCDavis)"
+    role: "PhD Candidate Affiliate (UC Davis)"
     institution: "University of California Davis"
     bio: >-
       Research interests and brief description.
