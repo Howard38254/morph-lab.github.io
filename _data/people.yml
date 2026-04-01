@@ -39,7 +39,25 @@ grad_students:
 postdocs: []
 
 undergrads:
-  - name: "Example Name"
+  - name: "Howard Huang"
+    role: "Undergraduate Researcher"
+    institution: "Rose-Hulman Institute of Technology"
+    bio: >-
+      Research interests and brief description.
+    photo: /assets/images/people/placeholder.jpg
+    email: ""
+    joined: 2025
+
+  - name: "Claire Slusser"
+    role: "Undergraduate Researcher"
+    institution: "Rose-Hulman Institute of Technology"
+    bio: >-
+      Research interests and brief description.
+    photo: /assets/images/people/placeholder.jpg
+    email: ""
+    joined: 2025
+
+  - name: "Mia Strelec"
     role: "Undergraduate Researcher"
     institution: "Rose-Hulman Institute of Technology"
     bio: >-
