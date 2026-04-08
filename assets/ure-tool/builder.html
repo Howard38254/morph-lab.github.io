@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undergraduate Research Mentorship Builder</title>
+    <style>
+        :root {
+            --bg: #070b16;
+            --bg-alt: #0e1524;
+            --panel: #111a2f;
+            --panel-alt: #1d2942;
+            --border: #223045;
+            --text: #f5f7fb;
+            --muted: #96a7c2;
+            --accent: #38bdf8;
+            --accent-2: #f472b6;
+            --accent-3: #a855f7;
+            --danger: #f87171;
+            --success: #34d399;
+            --shadow: 0 10px 30px rgba(2, 6, 23, 0.65);
+            --cat-early: #2563eb;
+            --cat-training: #14b8a6;
+            --cat-custom: #cbd5f5;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.08), transparent 45%),
+                        radial-gradient(circle at 80% 0, rgba(168, 85, 247, 0.08), transparent 35%),
+                        var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .app-shell {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 20px clamp(16px, 2vw, 32px) 32px;
+        }
+
+        .app-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 16px;
+        }
+
+        .title-stack {
+            max-width: 680px;
+        }
+
+        .title-stack p {
+            margin-top: 6px;
+            color: var(--muted);
+            line-height: 1.35;
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .chip-row-break {
+            flex-basis: 100%;
+            height: 0;
+        }
+
+        .chip {
+            padding: 3px 8px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--muted);
+        }
+
+        .chip-link {
+            padding: 3px 10px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .chip-link:hover {
+            background: var(--accent);
+            color: var(--bg);
+            transform: translateY(-1px);
+        }
+
+        .chip-link svg {
+            width: 10px;
+            height: 10px;
+        }
+
+        .chip-link-author {
+            border-color: var(--accent-2);
+            color: var(--accent-2);
+        }
+
+        .chip-link-author:hover {
+            background: var(--accent-2);
+        }
+
+        .header-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .ghost-btn,
+        .solid-btn {
+            border-radius: 999px;
+            padding: 9px 16px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            color: inherit;
+            background: transparent;
+        }
+
+        .ghost-btn {
+            border-color: rgba(148, 163, 184, 0.4);
+            color: var(--muted);
+        }
+
+        .solid-btn {
+            background: linear-gradient(135deg, var(--accent), var(--accent-3));
+            border: none;
+            color: #041023;
+            font-weight: 600;
+        }
+
+        .ghost-btn:hover,
+        .solid-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.35);
+        }
+
+        .faq-section {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            max-height: 600px;
+            overflow-y: auto;
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease, margin 0.3s ease;
+            opacity: 1;
+        }
+
+        .faq-section.collapsed {
+            max-height: 0;
+            padding: 0 20px;
+            margin-bottom: 0;
+            border: none;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .faq-section h2 {
+            font-size: 1rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .faq-section details {
+            border-bottom: 1px solid var(--border);
+            padding: 8px 0;
+        }
+
+        .faq-section details:last-child {
+            border-bottom: none;
+        }
+
+        .faq-section summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text);
+            padding: 4px 0;
+            list-style: none;
+        }
+
+        .faq-section summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-section summary::before {
+            content: '+ ';
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .faq-section details[open] summary::before {
+            content: '- ';
+        }
+
+        .faq-section details p {
+            margin: 6px 0 4px 16px;
+            color: var(--muted);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .layout {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            height: calc(100vh - 200px);
+            min-height: 300px;
+        }
+
+        .panel {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+            width: 220px;
+            max-height: 100%;
+            overflow: hidden;
+            transition: width 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .panel-header h2 {
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        .panel.collapsed {
+            width: 0;
+            min-height: 0;
+            padding: 0;
+            border: none;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        #notesField {
+            flex: 1;
+            width: 100%;
+            background: var(--panel-alt);
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 10px;
+            padding: 10px;
+            resize: none;
+            font-size: 11px;
+            line-height: 1.4;
+            min-height: 0;
+        }
+
+        .note-hints {
+            margin-top: 8px;
+            font-size: 10px;
+            color: var(--muted);
+            line-height: 1.35;
+            border-left: 2px solid rgba(148, 163, 184, 0.3);
+            padding-left: 6px;
+        }
+
+        .workspace-panel {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+            min-height: 0;
+            height: 100%;
+        }
+
+        .workspace-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 6px;
+            font-size: 11px;
+            color: var(--muted);
+            flex-shrink: 0;
+        }
+
+        #workspace-wrapper {
+            position: relative;
+            flex: 1;
+            min-height: 0;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        #canvas-scroller {
+            position: absolute;
+            inset: 0;
+            overflow: auto;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        #canvas-scroller.fit-view {
+            overflow: hidden;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #canvas-container {
+            position: relative;
+            width: 4000px;
+            height: 2000px;
+            transform-origin: top left;
+            flex-shrink: 0;
+        }
+
+        #canvas-scroller.fit-view #canvas-container {
+            transform-origin: top left;
+        }
+
+        #workspace {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 300px 1px,
+                linear-gradient(180deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px) 0 0 / 1px 120px;
+            border-radius: 14px;
+            z-index: 1;
+        }
+
+        #column-guides {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .column-guide {
+            border-right: 1px dashed rgba(148, 163, 184, 0.12);
+            position: relative;
+        }
+
+        .column-guide:last-child {
+            border-right: none;
+        }
+
+        .column-guide span {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            font-size: 10px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            color: rgba(148, 163, 184, 0.8);
+        }
+
+        #connection-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        #connection-layer path {
+            pointer-events: stroke;
+        }
+
+        .block {
+            position: absolute;
+            width: 320px;
+            min-width: 150px;
+            min-height: 150px;
+            background: rgba(15, 23, 42, 0.85);
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            padding: calc(12px * var(--block-scale, 1)) calc(14px * var(--block-scale, 1)) calc(16px * var(--block-scale, 1));
+            box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            cursor: grab;
+            user-select: none;
+            z-index: 4;
+            resize: both;
+            overflow: hidden;
+        }
+
+        .block::after {
+            content: '';
+            position: absolute;
+            bottom: 7px;
+            right: 7px;
+            width: 10px;
+            height: 10px;
+            background:
+                linear-gradient(135deg, transparent 0%, transparent 35%, rgba(0,0,0,0.4) 35%, rgba(0,0,0,0.4) 40%, transparent 40%, transparent 50%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.4) 55%, transparent 55%, transparent 65%, rgba(0,0,0,0.4) 65%, rgba(0,0,0,0.4) 70%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .block:active {
+            cursor: grabbing;
+        }
+
+        .block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 6px;
+        }
+
+        .block-category {
+            font-size: calc(10px * var(--block-scale, 1));
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(15, 23, 42, 0.8);
+            font-weight: 600;
+            margin-bottom: calc(4px * var(--block-scale, 1));
+        }
+
+        .block-title {
+            font-size: calc(16px * var(--block-scale, 1));
+            font-weight: 600;
+            margin-bottom: calc(6px * var(--block-scale, 1));
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .block-short {
+            font-size: calc(12px * var(--block-scale, 1));
+            line-height: 1.4;
+            color: rgba(15, 23, 42, 0.75);
+            font-weight: 500;
+            margin-bottom: calc(8px * var(--block-scale, 1));
+        }
+
+        .block-long {
+            font-size: calc(12px * var(--block-scale, 1));
+            line-height: 1.45;
+            color: rgba(15, 23, 42, 0.85);
+            font-weight: 400;
+            margin-bottom: calc(8px * var(--block-scale, 1));
+            padding: calc(8px * var(--block-scale, 1));
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .block.expanded .block-long {
+            display: block;
+        }
+
+        .block-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+        .block-link {
+            padding: 3px 8px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .block-link:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        .block-link svg {
+            width: 9px;
+            height: 9px;
+        }
+
+        .block-video {
+            padding: 3px 8px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease, color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .block-video:hover {
+            background: #ef4444;
+            color: #fff;
+        }
+
+        .block-video svg {
+            width: 9px;
+            height: 9px;
+        }
+
+        .em-chip {
+            padding: 2px 6px;
+            font-size: 8px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+
+        .em-chip.curiosity {
+            background: #fbbf24;
+            color: #1a1a2e;
+            border: 1px solid #fbbf24;
+            font-weight: 700;
+        }
+
+        .em-chip.connections {
+            background: #c084fc;
+            color: #1a1a2e;
+            border: 1px solid #c084fc;
+            font-weight: 700;
+        }
+
+        .em-chip.value {
+            background: #4ade80;
+            color: #1a1a2e;
+            border: 1px solid #4ade80;
+            font-weight: 700;
+        }
+
+        .em-legend {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            font-size: 9px;
+            letter-spacing: 0.02em;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            color: var(--muted);
+        }
+
+        .em-legend-chip {
+            display: inline-block;
+            padding: 1px 5px;
+            font-size: 8px;
+            font-weight: 700;
+            border-radius: 999px;
+        }
+
+        .em-legend-chip.c {
+            background: #fbbf24;
+            color: #1a1a2e;
+        }
+
+        .em-legend-chip.co {
+            background: #c084fc;
+            color: #1a1a2e;
+        }
+
+        .em-legend-chip.v {
+            background: #4ade80;
+            color: #1a1a2e;
+        }
+
+        .block-expand-btn {
+            padding: 2px 8px;
+            font-size: 9px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            color: rgba(15, 23, 42, 0.8);
+            cursor: pointer;
+            transition: background 0.15s ease;
+        }
+
+        .block-expand-btn:hover {
+            background: rgba(0, 0, 0, 0.35);
+        }
+
+        .block-note {
+            margin-top: calc(8px * var(--block-scale, 1));
+            font-size: calc(11px * var(--block-scale, 1));
+            color: rgba(15, 23, 42, 0.85);
+            padding-top: calc(8px * var(--block-scale, 1));
+            border-top: 1px dashed rgba(15, 23, 42, 0.35);
+            font-style: italic;
+        }
+
+        .block.selected {
+            outline: 2px solid var(--accent);
+        }
+
+        .block.collapsed-block {
+            min-height: 80px;
+        }
+
+        #libraryPanel {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            width: 240px;
+        }
+
+        #libraryPanel.collapsed {
+            width: 0;
+        }
+
+        #libraryList {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 6px;
+            min-height: 0;
+        }
+
+        .library-group {
+            margin-bottom: 12px;
+        }
+
+        .library-group h3 {
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(148, 163, 184, 0.85);
+            margin-bottom: 6px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .library-card {
+            background: var(--panel-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px 10px;
+            margin-bottom: 6px;
+            cursor: grab;
+            transition: transform 0.2s ease, border 0.2s ease;
+        }
+
+        .library-card:hover {
+            border-color: rgba(56, 189, 248, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .library-card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+
+        .library-card strong {
+            font-size: 11px;
+        }
+
+        .library-card p {
+            margin: 0;
+            font-size: 10px;
+            line-height: 1.3;
+            color: var(--muted);
+        }
+
+        .library-card-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(15, 23, 42, 0.3);
+            flex-shrink: 0;
+        }
+
+        .zoom-controls {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--panel-alt);
+            padding: 3px 8px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+        }
+
+        .zoom-btn {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+            background: var(--panel);
+            color: var(--text);
+            cursor: pointer;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s ease, border-color 0.15s ease;
+        }
+
+        .zoom-btn:hover {
+            background: var(--panel-alt);
+            border-color: var(--accent);
+        }
+
+        #zoomLevel {
+            min-width: 36px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .inspector-overlay {
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            display: none;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .inspector-overlay.visible {
+            display: block;
+        }
+
+        .inspector-modal {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 380px;
+            min-width: 240px;
+            min-height: 200px;
+            max-height: calc(100% - 32px);
+            overflow-y: auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+            box-shadow: 0 12px 30px rgba(2, 6, 23, 0.8);
+            pointer-events: auto;
+            resize: both;
+        }
+
+        .inspector-modal::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            right: 6px;
+            width: 10px;
+            height: 10px;
+            background:
+                linear-gradient(135deg, transparent 0%, transparent 35%, rgba(148,163,184,0.5) 35%, rgba(148,163,184,0.5) 40%, transparent 40%, transparent 50%, rgba(148,163,184,0.5) 50%, rgba(148,163,184,0.5) 55%, transparent 55%, transparent 65%, rgba(148,163,184,0.5) 65%, rgba(148,163,184,0.5) 70%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .inspector-modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 10px;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .inspector-modal-header:active {
+            cursor: grabbing;
+        }
+
+        .inspector-modal h3 {
+            font-size: 16px;
+            letter-spacing: 0.04em;
+        }
+
+        .inspector-field {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .inspector-field label {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: rgba(148, 163, 184, 0.8);
+        }
+
+        .inspector-field input[type="text"],
+        .inspector-field textarea {
+            background: var(--panel-alt);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 8px;
+            color: var(--text);
+            font-size: 13px;
+        }
+
+        .inspector-field textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .inspector-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        #label-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .connection-label {
+            position: absolute;
+            background: rgba(15, 23, 42, 0.95);
+            border: 1px solid rgba(148, 163, 184, 0.4);
+            padding: 6px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text);
+            white-space: normal;
+            max-width: 180px;
+            text-align: center;
+            line-height: 1.35;
+            word-wrap: break-word;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .connection-label:hover {
+            border-color: var(--accent);
+        }
+
+        .connection-path {
+            cursor: pointer;
+            stroke-linecap: round;
+        }
+
+        .connection-path:hover {
+            stroke-width: 5 !important;
+        }
+
+        .connection-label-editor {
+            position: absolute;
+            padding: 6px 10px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--panel-alt);
+            color: var(--text);
+            font-size: 12px;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            width: 200px;
+            box-shadow: 0 8px 20px rgba(2, 6, 23, 0.5);
+            pointer-events: auto;
+        }
+
+        .drag-shadow {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.8;
+            transform: translate(-50%, -50%);
+        }
+
+        @media (max-width: 900px) {
+            .layout {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .panel {
+                width: 100%;
+            }
+
+            .workspace-panel {
+                min-height: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="title-stack">
+                <h1>Undergraduate Research Mentorship Builder</h1>
+                <p>
+                    Plan undergraduate research mentorship using EM-focused training materials. Drag blocks to design 
+                    your research training program for lab-based undergraduate researchers in apprentice-style settings.
+                </p>
+                <div class="chip-row">
+                    <span class="chip">ENTREPRENEURIAL MINDSET IN RESEARCH</span>
+                    <span class="chip">APPRENTICE-STYLE RESEARCH</span>
+                    <span class="chip">LAB MENTORSHIP</span>
+                    <a href="https://engineeringunleashed.com/card/3165" target="_blank" rel="noopener" class="chip-link">
+                        Card #3165: Research Exposure
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                    <a href="https://engineeringunleashed.com/card/3619" target="_blank" rel="noopener" class="chip-link">
+                        Card #3619: Training Workshops
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    </a>
+                    <span class="chip-row-break"></span>
+                    <a href="https://engineeringunleashed.com/members/1436" target="_blank" rel="noopener" class="chip-link chip-link-author">John Peponis</a>
+                    <a href="https://engineeringunleashed.com/members/1778" target="_blank" rel="noopener" class="chip-link chip-link-author">Liping Liu</a>
+                    <a href="https://engineeringunleashed.com/members/3842" target="_blank" rel="noopener" class="chip-link chip-link-author">Irene Reizman</a>
+                    <a href="https://engineeringunleashed.com/members/1856" target="_blank" rel="noopener" class="chip-link chip-link-author">Michelle Marincel Payne</a>
+                    <a href="https://engineeringunleashed.com/members/8147" target="_blank" rel="noopener" class="chip-link chip-link-author">Maysam Nezafati</a>
+                    <a href="https://engineeringunleashed.com/members/3649" target="_blank" rel="noopener" class="chip-link chip-link-author">Mary Lauren Benton</a>
+                    <a href="https://engineeringunleashed.com/members/278" target="_blank" rel="noopener" class="chip-link chip-link-author">Blake Johnson</a>
+                    <a href="https://engineeringunleashed.com/members/1564" target="_blank" rel="noopener" class="chip-link chip-link-author">Ken Van Treuren</a>
+                    <span class="chip-row-break"></span>
+                    <span class="em-legend">
+                        EM KEY: 
+                        <span class="em-legend-chip c">C</span> Curiosity
+                        <span class="em-legend-chip co">Co</span> Connections
+                        <span class="em-legend-chip v">V</span> Creating Value
+                    </span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="ghost-btn" id="toggleNotesBtn">Toggle Notes</button>
+                <button class="ghost-btn" id="toggleLibraryBtn">Toggle Library</button>
+                <button class="ghost-btn" id="toggleFaqBtn">Toggle FAQ</button>
+                <button class="ghost-btn" id="blankBlockBtn">Add Blank Block</button>
+                <button class="ghost-btn" id="undoBtn">Undo</button>
+                <button class="ghost-btn" id="resetBtn">Reset</button>
+                <button class="ghost-btn" id="saveBtn">Save</button>
+                <button class="solid-btn" id="loadBtn">Load</button>
+            </div>
+        </header>
+
+        <div class="faq-section collapsed" id="faqSection">
+            <h2>Apprentice Research Builder FAQ</h2>
+            <details>
+                <summary>How do I add blocks?</summary>
+                <p>Open the Library panel (Toggle Library), then drag a block card onto the canvas. Alternatively, double-click an empty area of the canvas or use the "Add Blank Block" button to create a new block at a default position.</p>
+            </details>
+            <details>
+                <summary>How do I connect blocks with arrows?</summary>
+                <p>Double-click the outer edge of a block to start an arrow from that block. Then single-click the outer edge of a different block to complete the connection — the arrow will point from the first block toward the second. Press Esc, left-click empty space, or right-click to cancel. Arrows stay anchored to their blocks when you move them. You can also double-click the label at an arrow's midpoint to add or edit text.</p>
+            </details>
+            <details>
+                <summary>How do I edit a block?</summary>
+                <p>Double-click any block on the canvas to open the Inspector — a floating, draggable panel that appears at the top-right of the workspace. From there you can edit the block's title, short and long descriptions, notes, and video URL, as well as duplicate or delete the block. Click "Save" in the inspector to apply your changes.</p>
+            </details>
+            <details>
+                <summary>How do I expand a block's full description?</summary>
+                <p>Blocks show a short description by default. Click the expand toggle on a block to reveal its full long description, which includes objectives, time needed, and procedure details. Click again to collapse back to the short view.</p>
+            </details>
+            <details>
+                <summary>How do I resize blocks?</summary>
+                <p>Drag the grip indicator in the bottom-right corner of any block. Text and spacing inside the block scale proportionally as you resize. Dimensions are saved and persist across sessions.</p>
+            </details>
+            <details>
+                <summary>How do I delete blocks or connections?</summary>
+                <p>Select a block and press Delete or Backspace, or open the Inspector and click "Delete." To remove an arrow, left-click on it.</p>
+            </details>
+            <details>
+                <summary>How do I use the zoom controls?</summary>
+                <p>Use Ctrl+scroll over the canvas to zoom in and out (range: 25%–150%). The toolbar above the canvas also provides −/+ buttons and a fit-to-view (⊡) button that centers and scales the canvas to fit your workspace. Your zoom level is saved to local storage.</p>
+            </details>
+            <details>
+                <summary>How do I save and load layouts?</summary>
+                <p>Click "Save" in the header to download your current layout as a JSON file. Click "Load" to import a previously saved file. The Notes panel also autosaves its content to local storage.</p>
+            </details>
+            <details>
+                <summary>How do I undo actions?</summary>
+                <p>Click the "Undo" button in the header toolbar to step back through recent actions such as moves, edits, deletions, and connections. In addition, you can use Ctrl+Z.</p>
+            </details>
+            <details>
+                <summary>What do the side panels do?</summary>
+                <p><strong>Mentorship Plan</strong> (left panel): A free-form text area pre-populated with research mentorship planning prompts. Content autosaves to your browser's local storage.<br><strong>Library</strong> (right panel): A categorized catalog of block templates representing Early Exposure activities (blue) and Student Research Training Workshops (teal). Browse or search, then drag blocks onto the canvas to use them.</p>
+            </details>
+            <details>
+                <summary>What do the EM indicator chips mean?</summary>
+                <p>Each block displays small colored chips indicating its alignment with Entrepreneurial Mindset dimensions: <strong>C</strong> (Curiosity, yellow), <strong>Co</strong> (Connections, purple), and <strong>V</strong> (Creating Value, green). These help you see at a glance which EM competencies each activity develops.</p>
+            </details>
+        </div>
+
+        <section class="layout">
+            <aside class="panel collapsed" id="notesPanel">
+                <div class="panel-header">
+                    <h2>Mentorship Plan</h2>
+                    <span class="chip">Autosaves</span>
+                </div>
+                <textarea id="notesField" placeholder="Document your research mentorship plan..."></textarea>
+                <div class="note-hints">
+                    Map early exposure activities to your courses, plan onboarding workshops for new researchers, 
+                    and schedule skill-building sessions throughout the research experience.
+                </div>
+            </aside>
+
+            <section class="workspace-panel">
+                <div class="workspace-toolbar">
+                    <span id="statusText">Double-click near a block edge to start a connector. Press Esc to cancel; right-click to delete.</span>
+                    <div class="zoom-controls">
+                        <button class="zoom-btn" id="zoomOutBtn" title="Zoom Out">−</button>
+                        <span id="zoomLevel">100%</span>
+                        <button class="zoom-btn" id="zoomInBtn" title="Zoom In">+</button>
+                        <button class="zoom-btn" id="zoomFitBtn" title="Fit to View">⊡</button>
+                    </div>
+                </div>
+                <div id="workspace-wrapper">
+                    <div id="canvas-scroller">
+                        <div id="canvas-container">
+                            <div id="column-guides"></div>
+                            <svg id="connection-layer">
+                                <defs>
+                                    <marker id="arrowhead" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="strokeWidth"
+                                            markerWidth="5" markerHeight="5" orient="auto">
+                                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#f8fafc"></path>
+                                    </marker>
+                                </defs>
+                            </svg>
+                            <div id="workspace"></div>
+                            <div id="label-layer"></div>
+                        </div>
+                    </div>
+                    <div id="inspectorOverlay" class="inspector-overlay">
+                        <div class="inspector-modal">
+                            <div class="inspector-modal-header">
+                                <h3>Block Editor</h3>
+                                <button class="ghost-btn" id="closeInspectorBtn">Close</button>
+                            </div>
+                            <div id="inspectorContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="panel" id="libraryPanel">
+                <div class="panel-header">
+                    <h2>Block Library</h2>
+                    <span class="chip">Drag to copy</span>
+                </div>
+                <div id="libraryList"></div>
+            </aside>
+        </section>
+
+        <input type="file" id="loadInput" accept="application/json" style="display:none">
+    </div>
+
+    <template id="blockTemplate">
+        <div class="block">
+            <div class="block-category"></div>
+            <div class="block-title"></div>
+            <div class="block-short"></div>
+            <div class="block-long"></div>
+            <div class="block-meta"></div>
+            <div class="block-note"></div>
+        </div>
+    </template>
+
+    <script>
+        // Research mentorship phase columns
+        const phaseColumns = [
+            { id: 'before', label: 'Before Research' },
+            { id: 'onboarding', label: 'Onboarding' },
+            { id: 'during', label: 'During Research' },
+            { id: 'skills', label: 'Skill Building' },
+            { id: 'communication', label: 'Communication' },
+            { id: 'reflection', label: 'Reflection & Next Steps' }
+        ];
+
+        const palette = {
+            early: '#2563eb',      // Blue for Early Exposure (Card #3165)
+            training: '#14b8a6',   // Teal for Training Workshops (Card #3619)
+            custom: '#cbd5f5'      // Light gray-blue for Custom
+        };
+
+        // External link icon SVG
+        const linkIconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
+        // Block library with all modules
+        const libraryCards = [
+            {
+                category: 'Early Exposure (Card #3165)',
+                items: [
+                    {
+                        id: 'A1',
+                        title: '"What is Research?"',
+                        body: 'Quick reflection on research curiosity',
+                        longBody: '10 min total. Video introduces research concepts; minute paper prompts students to reflect on questions they\'re curious about, topics they\'d pursue, and impact they want to have.',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: 'https://www.youtube.com/watch?v=wOkVx4Cswdo',
+                        emTags: ['curiosity']
+                    },
+                    {
+                        id: 'A2',
+                        title: '"Why Should I Do Research?"',
+                        body: 'Explore motivations for research',
+                        longBody: '15-22 min. Group reflection on technology around us, reasons for research, benefits to researcher and society, and career connections.',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: 'https://www.youtube.com/watch?v=z60YHwNZ06I',
+                        emTags: ['curiosity', 'value']
+                    },
+                    {
+                        id: 'A3',
+                        title: '"Interview a Researcher"',
+                        body: 'Students interview faculty about research',
+                        longBody: 'Multi-week assignment. Students prepare questions, conduct mock interviews, then interview actual faculty member. Builds connection and demystifies research.',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: '',
+                        emTags: ['connections', 'curiosity']
+                    },
+                    {
+                        id: 'A4',
+                        title: '"EM in Research"',
+                        body: 'Connect faculty research to daily problems',
+                        longBody: '45-60 min. Students find faculty research interests, list daily problems, brainstorm connections. Emphasizes EM connections between research and real-world impact.',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: 'https://www.youtube.com/watch?v=Pvk6kVpLS3M',
+                        emTags: ['connections', 'value']
+                    },
+                    {
+                        id: 'A5',
+                        title: '"Technology in Daily Life"',
+                        body: 'Trace a product from research to market',
+                        longBody: '35-125 min. Brainstorm everyday technologies, research how one went from idea to product. Individual written (1-page) or group presentation (10 min).',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: '',
+                        emTags: ['connections', 'value']
+                    },
+                    {
+                        id: 'A6',
+                        title: '"How Does Research Get Done?"',
+                        body: 'Understand research funding process',
+                        longBody: '15-20 min class + homework. Reflection on research process, video on university research, homework to find funding agency and funded project in area of interest.',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: 'https://www.youtube.com/watch?v=065UM2wzhYU',
+                        emTags: ['curiosity', 'connections']
+                    },
+                    {
+                        id: 'A7',
+                        title: '"Research Opportunity Bingo"',
+                        body: 'Gamified exploration of research opportunities',
+                        longBody: 'Variable time. Bingo card with tasks like visiting poster sessions, emailing researchers, attending seminars. Addresses barriers to research involvement.',
+                        color: palette.early,
+                        link: 'https://engineeringunleashed.com/card/3165',
+                        video: 'https://www.youtube.com/watch?v=3Z7SVZR-Rsg',
+                        emTags: ['curiosity', 'connections']
+                    }
+                ]
+            },
+            {
+                category: 'Training Workshops (Card #3619)',
+                items: [
+                    {
+                        id: 'B1',
+                        title: 'Framing Your Research Question',
+                        body: 'Apply EM framework to formulate research questions',
+                        longBody: '60 min workshop. Uses mind mapping to identify open questions, connects broad statements to specific claims, identifies stakeholders and their interests.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: 'https://www.youtube.com/watch?v=m9S9KTn9aSE',
+                        emTags: ['curiosity', 'connections']
+                    },
+                    {
+                        id: 'B2',
+                        title: 'Thriving in a Research Environment',
+                        body: 'SMART goals for research success',
+                        longBody: '60 min workshop. Practice writing SMART goals connected to stakeholder interests, prepare goal-setting plan with reflection frequency and accountability.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: 'https://www.youtube.com/watch?v=rL5caiGEwfU',
+                        emTags: ['value', 'connections']
+                    },
+                    {
+                        id: 'B3',
+                        title: 'Building Resilience in Research',
+                        body: 'Communication skills for stressful situations',
+                        longBody: '60 min workshop. Identify passive/aggressive/assertive responses, practice empathic listening, role-play assertive communication for research contexts.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: 'https://www.youtube.com/watch?v=Y2QOFf3Tozs',
+                        emTags: ['connections']
+                    },
+                    {
+                        id: 'B4',
+                        title: 'Developing Your Research Pitch',
+                        body: 'Create compelling research presentations',
+                        longBody: '60 min workshop. Create connections with audience, stimulate curiosity, capitalize on opportunities, leave lasting impression. Uses scenario cards and rubric.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: 'https://www.youtube.com/watch?v=m66UtSOae2k',
+                        emTags: ['connections', 'value']
+                    },
+                    {
+                        id: 'B5',
+                        title: 'Effective Data Visualization',
+                        body: 'Communicate data insights to stakeholders',
+                        longBody: '60 min workshop. Evaluate visualization effectiveness, learn key principles, communicate insights for decisions, recognize ethical considerations.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: 'https://www.youtube.com/watch?v=t9K4u5yFg-8',
+                        emTags: ['value', 'connections']
+                    },
+                    {
+                        id: 'B6',
+                        title: 'Maximizing Research Impact',
+                        body: 'Dissemination planning for research results',
+                        longBody: '60 min workshop. Describe impact level, list dissemination options (academic and non-academic), identify appropriate venues, prepare dissemination plan.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: 'https://www.youtube.com/watch?v=MRmM2bOORUs',
+                        emTags: ['value']
+                    },
+                    {
+                        id: 'B7',
+                        title: 'Crafting Your Research Story',
+                        body: 'Story as reflection and identity formation',
+                        longBody: '60 min workshop. Craft personal and research stories, share and provide feedback, learn components of memorable stories. Builds research identity.',
+                        color: palette.training,
+                        link: 'https://engineeringunleashed.com/card/3619',
+                        video: '',
+                        emTags: ['curiosity', 'value']
+                    }
+                ]
+            },
+            {
+                category: 'Custom',
+                items: [
+                    {
+                        id: 'C1',
+                        title: 'Blank Block',
+                        body: 'Add your own activity or milestone',
+                        longBody: '',
+                        color: palette.custom,
+                        link: '',
+                        video: '',
+                        emTags: []
+                    }
+                ]
+            }
+        ];
+
+        // DOM Elements
+        const workspace = document.getElementById('workspace');
+        const connectionLayer = document.getElementById('connection-layer');
+        const labelLayer = document.getElementById('label-layer');
+        const canvasContainer = document.getElementById('canvas-container');
+        const canvasScroller = document.getElementById('canvas-scroller');
+        const workspaceWrapper = document.getElementById('workspace-wrapper');
+        const columnGuides = document.getElementById('column-guides');
+        const notesField = document.getElementById('notesField');
+        const statusText = document.getElementById('statusText');
+        const inspectorContent = document.getElementById('inspectorContent');
+        const inspectorOverlay = document.getElementById('inspectorOverlay');
+        const closeInspectorBtn = document.getElementById('closeInspectorBtn');
+        const libraryList = document.getElementById('libraryList');
+        const notesPanel = document.getElementById('notesPanel');
+        const libraryPanel = document.getElementById('libraryPanel');
+        const loadInput = document.getElementById('loadInput');
+        const zoomLevelDisplay = document.getElementById('zoomLevel');
+        
+        const CANVAS_WIDTH = 4000;
+        const CANVAS_HEIGHT = 2000;
+        const STORAGE_PREFIX = 'apprenticeBuilder';
+
+        let blocks = [];
+        let connections = [];
+        let blockCount = 0;
+        let connectionCount = 0;
+        let selectedBlockId = null;
+        let connectorStart = null;
+        let dragGhost = null;
+        let activeConnectionEditor = null;
+        let currentZoom = 0.60;
+
+        let undoStack = [];
+        let isUndoing = false;
+        const MAX_UNDO = 50;
+        let resizeSaveTimeout;
+        const DEFAULT_BLOCK_WIDTH = 320;
+
+        async function init() {
+            renderPhaseGuides();
+            renderLibrary();
+            attachGlobalEvents();
+            attachZoomEvents();
+
+            const storedState = localStorage.getItem(`${STORAGE_PREFIX}State`);
+            const storedNotes = localStorage.getItem(`${STORAGE_PREFIX}Notes`);
+            
+            if (!storedState && !storedNotes) {
+                try {
+                    const response = await fetch('research-plan.json');
+                    if (response.ok) {
+                        const data = await response.json();
+                        blocks = data.blocks || [];
+                        connections = data.connections || [];
+                        notesField.value = data.notes || '';
+                        blockCount = blocks.length;
+                        connectionCount = connections.length;
+                        localStorage.setItem(`${STORAGE_PREFIX}State`, JSON.stringify({ blocks, connections }));
+                        localStorage.setItem(`${STORAGE_PREFIX}Notes`, notesField.value);
+                    }
+                } catch (err) {
+                    console.error('Failed to load default plan:', err);
+                }
+            }
+
+            hydrateNotes();
+            hydrateState();
+            applyZoom();
+        }
+
+        function renderPhaseGuides() {
+            columnGuides.innerHTML = '';
+            phaseColumns.forEach(() => {
+                const div = document.createElement('div');
+                div.className = 'column-guide';
+                columnGuides.appendChild(div);
+            });
+        }
+
+        function renderLibrary() {
+            libraryList.innerHTML = '';
+            libraryCards.forEach(group => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'library-group';
+
+                const heading = document.createElement('h3');
+                heading.textContent = group.category;
+                wrapper.appendChild(heading);
+
+                group.items.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'library-card';
+                    card.dataset.cardId = item.id;
+                    card.dataset.color = item.color;
+                    card.dataset.category = group.category;
+                    card.innerHTML = `
+                        <div class="library-card-header">
+                            <span class="library-card-swatch" style="background:${item.color}"></span>
+                            <strong>${item.title}</strong>
+                        </div>
+                        <p>${item.body}</p>
+                    `;
+
+                    card.addEventListener('pointerdown', event => {
+                        event.preventDefault();
+                        startLibraryDrag(event, item, group.category);
+                    });
+
+                    wrapper.appendChild(card);
+                });
+                libraryList.appendChild(wrapper);
+            });
+        }
+
+        function startLibraryDrag(event, item, category) {
+            dragGhost = document.createElement('div');
+            dragGhost.className = 'library-card drag-shadow';
+            dragGhost.style.background = item.color;
+            dragGhost.style.color = '#041023';
+            dragGhost.innerHTML = `<strong>${item.title}</strong>`;
+            document.body.appendChild(dragGhost);
+
+            function onMove(e) {
+                dragGhost.style.left = `${e.clientX}px`;
+                dragGhost.style.top = `${e.clientY}px`;
+            }
+
+            function onUp(e) {
+                document.removeEventListener('pointermove', onMove);
+                document.removeEventListener('pointerup', onUp);
+                dragGhost.remove();
+                dragGhost = null;
+
+                const scrollerRect = canvasScroller.getBoundingClientRect();
+                if (
+                    e.clientX >= scrollerRect.left &&
+                    e.clientX <= scrollerRect.right &&
+                    e.clientY >= scrollerRect.top &&
+                    e.clientY <= scrollerRect.bottom
+                ) {
+                    const offsetX = (e.clientX - scrollerRect.left + canvasScroller.scrollLeft) / currentZoom;
+                    const offsetY = (e.clientY - scrollerRect.top + canvasScroller.scrollTop) / currentZoom;
+                    spawnBlockFromCard(item, category, offsetX - 160, offsetY - 60);
+                }
+            }
+
+            document.addEventListener('pointermove', onMove);
+            document.addEventListener('pointerup', onUp);
+        }
+
+        function spawnBlockFromCard(item, category, x = 80, y = 80) {
+            const block = {
+                id: `block-${++blockCount}`,
+                cardId: item.id,
+                title: item.title,
+                body: item.body,
+                longBody: item.longBody || '',
+                category,
+                color: item.color,
+                link: item.link || '',
+                video: item.video || '',
+                emTags: item.emTags || [],
+                notes: '',
+                expanded: false,
+                x,
+                y
+            };
+            blocks.push(block);
+            renderBlocks();
+            saveState();
+            selectBlock(block.id);
+        }
+
+        const blockResizeObserver = new ResizeObserver(entries => {
+            for (const entry of entries) {
+                const el = entry.target;
+                const blockId = el.dataset.id;
+                const block = blocks.find(b => b.id === blockId);
+                if (block) {
+                    block.w = el.offsetWidth;
+                    block.h = el.offsetHeight;
+                    const scale = el.offsetWidth / DEFAULT_BLOCK_WIDTH;
+                    el.style.setProperty('--block-scale', scale);
+                    block.scale = scale;
+                }
+            }
+            renderConnections();
+            clearTimeout(resizeSaveTimeout);
+            resizeSaveTimeout = setTimeout(() => saveState(), 300);
+        });
+
+        function renderBlocks() {
+            blockResizeObserver.disconnect();
+            workspace.querySelectorAll('.block').forEach(el => el.remove());
+            blocks.forEach(block => {
+                const node = document.getElementById('blockTemplate').content.firstElementChild.cloneNode(true);
+                node.dataset.id = block.id;
+                node.style.left = `${block.x}px`;
+                node.style.top = `${block.y}px`;
+                node.style.background = block.color;
+                if (block.w) node.style.width = `${block.w}px`;
+                if (block.h) node.style.height = `${block.h}px`;
+                if (block.scale) node.style.setProperty('--block-scale', block.scale);
+
+                if (block.expanded) {
+                    node.classList.add('expanded');
+                }
+                
+                node.querySelector('.block-category').textContent = block.category;
+                node.querySelector('.block-title').textContent = block.title;
+                node.querySelector('.block-short').textContent = block.body;
+                node.querySelector('.block-long').textContent = block.longBody || '';
+                
+                // Build meta section with link, EM chips, and expand button
+                const metaDiv = node.querySelector('.block-meta');
+                metaDiv.innerHTML = '';
+                
+                // Add link chip if present
+                if (block.link) {
+                    const linkChip = document.createElement('a');
+                    linkChip.className = 'block-link';
+                    linkChip.href = block.link;
+                    linkChip.target = '_blank';
+                    linkChip.rel = 'noopener';
+                    linkChip.innerHTML = `View Card ${linkIconSvg}`;
+                    linkChip.addEventListener('click', e => e.stopPropagation());
+                    metaDiv.appendChild(linkChip);
+                }
+                
+                // Add video link if present
+                if (block.video) {
+                    const videoChip = document.createElement('a');
+                    videoChip.className = 'block-video';
+                    videoChip.href = block.video;
+                    videoChip.target = '_blank';
+                    videoChip.rel = 'noopener';
+                    videoChip.innerHTML = `Video <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>`;
+                    videoChip.addEventListener('click', e => e.stopPropagation());
+                    metaDiv.appendChild(videoChip);
+                }
+                
+                // Add EM indicator chips
+                if (block.emTags && block.emTags.length > 0) {
+                    block.emTags.forEach(tag => {
+                        const chip = document.createElement('span');
+                        chip.className = `em-chip ${tag}`;
+                        if (tag === 'curiosity') chip.textContent = 'C';
+                        if (tag === 'connections') chip.textContent = 'Co';
+                        if (tag === 'value') chip.textContent = 'V';
+                        chip.title = tag.charAt(0).toUpperCase() + tag.slice(1);
+                        metaDiv.appendChild(chip);
+                    });
+                }
+                
+                // Add expand/collapse button if there's long content
+                if (block.longBody) {
+                    const expandBtn = document.createElement('button');
+                    expandBtn.className = 'block-expand-btn';
+                    expandBtn.textContent = block.expanded ? 'Less ▲' : 'More ▼';
+                    expandBtn.addEventListener('click', e => {
+                        e.stopPropagation();
+                        block.expanded = !block.expanded;
+                        renderBlocks();
+                        saveState();
+                    });
+                    metaDiv.appendChild(expandBtn);
+                }
+                
+                // Notes
+                const noteDiv = node.querySelector('.block-note');
+                if (block.notes && block.notes.trim()) {
+                    noteDiv.textContent = block.notes;
+                } else {
+                    noteDiv.style.display = 'none';
+                }
+
+                node.addEventListener('pointerdown', e => {
+                    if (e.button !== 0) return;
+                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+                    // Skip drag if clicking in the resize handle zone (bottom-right corner)
+                    const rect = node.getBoundingClientRect();
+                    const localX = e.clientX - rect.left;
+                    const localY = e.clientY - rect.top;
+                    if (localX >= rect.width - 20 && localY >= rect.height - 20) return;
+                    startBlockDrag(e, block, node);
+                });
+
+                node.addEventListener('click', e => {
+                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+                    if (connectorStart && connectorStart !== block.id) {
+                        if (isEdgeClick(e, node)) {
+                            finalizeConnection(block.id);
+                            e.stopPropagation();
+                            return;
+                        }
+                    }
+                    selectBlock(block.id);
+                    e.stopPropagation();
+                });
+
+                node.addEventListener('dblclick', e => {
+                    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON') return;
+                    if (isEdgeClick(e, node)) {
+                        beginConnector(block.id);
+                    } else {
+                        openBlockEditor(block);
+                    }
+                    e.stopPropagation();
+                });
+
+                workspace.appendChild(node);
+                blockResizeObserver.observe(node);
+            });
+            highlightSelection();
+            renderConnections();
+        }
+
+        function startBlockDrag(event, block, element) {
+            event.preventDefault();
+            const startX = event.clientX;
+            const startY = event.clientY;
+            const originX = block.x;
+            const originY = block.y;
+
+            element.setPointerCapture(event.pointerId);
+
+            const onMove = e => {
+                const deltaX = (e.clientX - startX) / currentZoom;
+                const deltaY = (e.clientY - startY) / currentZoom;
+                block.x = clamp(originX + deltaX, 0, CANVAS_WIDTH - element.offsetWidth);
+                block.y = clamp(originY + deltaY, 0, CANVAS_HEIGHT - element.offsetHeight);
+                element.style.left = `${block.x}px`;
+                element.style.top = `${block.y}px`;
+                renderConnections();
+            };
+
+            const onUp = () => {
+                element.removeEventListener('pointermove', onMove);
+                element.removeEventListener('pointerup', onUp);
+                element.releasePointerCapture(event.pointerId);
+                saveState();
+            };
+
+            element.addEventListener('pointermove', onMove);
+            element.addEventListener('pointerup', onUp);
+        }
+
+        function isEdgeClick(event, element) {
+            const rect = element.getBoundingClientRect();
+            const padding = 18;
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            return x <= padding || y <= padding || x >= rect.width - padding || y >= rect.height - padding;
+        }
+
+        function beginConnector(blockId) {
+            connectorStart = blockId;
+            statusText.textContent = 'Connector armed: click another block edge to set the arrow destination.';
+            highlightSelection();
+        }
+
+        function finalizeConnection(targetId) {
+            const start = blocks.find(b => b.id === connectorStart);
+            if (!start) return;
+            connections.push({
+                id: `conn-${++connectionCount}`,
+                from: connectorStart,
+                to: targetId,
+                label: '',
+                color: '#f8fafc'
+            });
+            connectorStart = null;
+            statusText.textContent = 'Connection added. Right-click a connector to delete, double-click to add a label.';
+            renderConnections();
+            saveState();
+            highlightSelection();
+        }
+
+        function cancelConnector() {
+            connectorStart = null;
+            statusText.textContent = 'Connector canceled.';
+            highlightSelection();
+        }
+
+        function renderConnections() {
+            const defs = connectionLayer.querySelector('defs');
+            connectionLayer.innerHTML = '';
+            connectionLayer.appendChild(defs);
+            
+            labelLayer.querySelectorAll('.connection-label').forEach(el => el.remove());
+
+            connections.forEach(connection => {
+                const fromRect = getBlockRect(connection.from);
+                const toRect = getBlockRect(connection.to);
+                if (!fromRect || !toRect) return;
+
+                const { start, end } = computeEdgePoints(fromRect, toRect);
+                const midpoint = {
+                    x: (start.x + end.x) / 2,
+                    y: (start.y + end.y) / 2
+                };
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('d', `M ${start.x} ${start.y} L ${end.x} ${end.y}`);
+                path.setAttribute('stroke', connection.color);
+                path.setAttribute('stroke-width', '3.5');
+                path.setAttribute('fill', 'none');
+                path.setAttribute('marker-end', 'url(#arrowhead)');
+                path.classList.add('connection-path');
+                path.dataset.id = connection.id;
+
+                path.addEventListener('dblclick', e => {
+                    e.stopPropagation();
+                    openConnectionLabelEditor(connection, midpoint);
+                });
+
+                path.addEventListener('contextmenu', e => {
+                    e.preventDefault();
+                    deleteConnection(connection.id);
+                });
+
+                connectionLayer.appendChild(path);
+
+                if (connection.label) {
+                    const label = document.createElement('div');
+                    label.className = 'connection-label';
+                    label.textContent = connection.label.length > 75 
+                        ? connection.label.substring(0, 75) + '…' 
+                        : connection.label;
+                    label.style.left = `${midpoint.x}px`;
+                    label.style.top = `${midpoint.y}px`;
+                    label.addEventListener('dblclick', e => {
+                        e.stopPropagation();
+                        openConnectionLabelEditor(connection, midpoint);
+                    });
+                    label.addEventListener('contextmenu', e => {
+                        e.preventDefault();
+                        deleteConnection(connection.id);
+                    });
+                    labelLayer.appendChild(label);
+                }
+
+                if (activeConnectionEditor && activeConnectionEditor.dataset.connectionId === connection.id) {
+                    activeConnectionEditor.style.left = `${midpoint.x}px`;
+                    activeConnectionEditor.style.top = `${midpoint.y}px`;
+                }
+            });
+        }
+
+        function openConnectionLabelEditor(connection, midpoint) {
+            if (activeConnectionEditor && activeConnectionEditor.dataset.connectionId === connection.id) {
+                return;
+            }
+            closeConnectionLabelEditor(true);
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = 'connection-label-editor';
+            input.value = connection.label || '';
+            input.maxLength = 75;
+            input.placeholder = 'Label (max 75 chars)';
+            input.dataset.connectionId = connection.id;
+            input.style.left = `${midpoint.x}px`;
+            input.style.top = `${midpoint.y}px`;
+            labelLayer.appendChild(input);
+            activeConnectionEditor = input;
+            input.focus();
+
+            input.addEventListener('keydown', event => {
+                if (event.key === 'Enter') {
+                    closeConnectionLabelEditor(false);
+                } else if (event.key === 'Escape') {
+                    closeConnectionLabelEditor(true);
+                }
+            });
+
+            input.addEventListener('blur', () => {
+                closeConnectionLabelEditor(false);
+            });
+        }
+
+        function closeConnectionLabelEditor(discard) {
+            if (!activeConnectionEditor) return;
+            const connectionId = activeConnectionEditor.dataset.connectionId;
+            const value = activeConnectionEditor.value.trim();
+            activeConnectionEditor.remove();
+            activeConnectionEditor = null;
+            if (discard) return;
+            const connection = connections.find(conn => conn.id === connectionId);
+            if (connection) {
+                connection.label = value;
+                saveState();
+                renderConnections();
+            }
+        }
+
+        function getBlockRect(id) {
+            const block = blocks.find(b => b.id === id);
+            const el = workspace.querySelector(`.block[data-id="${id}"]`);
+            if (!block || !el) return null;
+            return {
+                x: block.x,
+                y: block.y,
+                width: el.offsetWidth,
+                height: el.offsetHeight
+            };
+        }
+
+        function computeEdgePoints(fromRect, toRect) {
+            const start = {
+                x: fromRect.x + fromRect.width / 2,
+                y: fromRect.y + fromRect.height / 2
+            };
+            const end = {
+                x: toRect.x + toRect.width / 2,
+                y: toRect.y + toRect.height / 2
+            };
+
+            const startEdge = projectToEdge(start, end, fromRect);
+            const endEdge = projectToEdge(end, start, toRect);
+            return { start: startEdge, end: endEdge };
+        }
+
+        function projectToEdge(center, target, rect) {
+            const dx = target.x - center.x;
+            const dy = target.y - center.y;
+            const absDx = Math.abs(dx);
+            const absDy = Math.abs(dy);
+            const w = rect.width / 2;
+            const h = rect.height / 2;
+
+            if (absDx / w > absDy / h) {
+                const scale = w / absDx;
+                return {
+                    x: center.x + dx * scale,
+                    y: center.y + dy * scale
+                };
+            } else {
+                const scale = h / absDy || 0;
+                return {
+                    x: center.x + dx * scale,
+                    y: center.y + dy * scale
+                };
+            }
+        }
+
+        function deleteConnection(id) {
+            if (activeConnectionEditor && activeConnectionEditor.dataset.connectionId === id) {
+                closeConnectionLabelEditor(true);
+            }
+            connections = connections.filter(conn => conn.id !== id);
+            renderConnections();
+            saveState();
+        }
+
+        function openBlockEditor(block) {
+            selectedBlockId = block.id;
+            renderInspector(block);
+            // Reset position to top-right
+            const modal = document.querySelector('.inspector-modal');
+            modal.style.left = '';
+            modal.style.right = '16px';
+            modal.style.top = '16px';
+            inspectorOverlay.classList.add('visible');
+            highlightSelection();
+        }
+
+        function closeInspector() {
+            inspectorOverlay.classList.remove('visible');
+            inspectorContent.innerHTML = '';
+        }
+
+        function renderInspector(block) {
+            inspectorContent.innerHTML = '';
+            const form = document.createElement('form');
+            form.innerHTML = `
+                <div class="inspector-field">
+                    <label>Category</label>
+                    <input type="text" id="inspCategory" value="${escapeHtml(block.category)}">
+                </div>
+                <div class="inspector-field">
+                    <label>Title</label>
+                    <input type="text" id="inspTitle" value="${escapeHtml(block.title)}">
+                </div>
+                <div class="inspector-field">
+                    <label>Short Description</label>
+                    <textarea id="inspBody">${escapeHtml(block.body)}</textarea>
+                </div>
+                <div class="inspector-field">
+                    <label>Long Description (Expanded View)</label>
+                    <textarea id="inspLongBody">${escapeHtml(block.longBody)}</textarea>
+                </div>
+                <div class="inspector-field">
+                    <label>Card Link URL</label>
+                    <input type="text" id="inspLink" value="${escapeHtml(block.link)}" placeholder="https://engineeringunleashed.com/card/...">
+                </div>
+                <div class="inspector-field">
+                    <label>Video Link URL</label>
+                    <input type="text" id="inspVideo" value="${escapeHtml(block.video || '')}" placeholder="https://youtube.com/...">
+                </div>
+                <div class="inspector-field">
+                    <label>Personal Notes</label>
+                    <textarea id="inspNotes" placeholder="Your annotations...">${escapeHtml(block.notes || '')}</textarea>
+                </div>
+                <div class="inspector-actions">
+                    <button class="solid-btn" type="submit">Save</button>
+                    <button class="ghost-btn" type="button" id="duplicateBlock">Duplicate</button>
+                    <button class="ghost-btn" type="button" id="deleteBlock">Delete</button>
+                    <button class="ghost-btn" type="button" id="cancelInspector">Cancel</button>
+                </div>
+            `;
+            inspectorContent.appendChild(form);
+
+            form.addEventListener('submit', event => {
+                event.preventDefault();
+                block.category = document.getElementById('inspCategory').value.trim() || block.category;
+                block.title = document.getElementById('inspTitle').value.trim() || block.title;
+                block.body = document.getElementById('inspBody').value.trim();
+                block.longBody = document.getElementById('inspLongBody').value.trim();
+                block.link = document.getElementById('inspLink').value.trim();
+                block.video = document.getElementById('inspVideo').value.trim();
+                block.notes = document.getElementById('inspNotes').value.trim();
+                renderBlocks();
+                saveState();
+                closeInspector();
+            });
+
+            document.getElementById('duplicateBlock').onclick = () => {
+                const clone = { ...block, id: `block-${++blockCount}`, x: block.x + 24, y: block.y + 24, emTags: [...(block.emTags || [])] };
+                blocks.push(clone);
+                renderBlocks();
+                saveState();
+                closeInspector();
+            };
+
+            document.getElementById('deleteBlock').onclick = () => {
+                blocks = blocks.filter(b => b.id !== block.id);
+                connections = connections.filter(conn => conn.from !== block.id && conn.to !== block.id);
+                selectedBlockId = null;
+                renderBlocks();
+                saveState();
+                closeInspector();
+            };
+
+            document.getElementById('cancelInspector').onclick = closeInspector;
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function selectBlock(id) {
+            selectedBlockId = id;
+            highlightSelection();
+        }
+
+        function highlightSelection() {
+            workspace.querySelectorAll('.block').forEach(el => {
+                if (el.dataset.id === selectedBlockId || el.dataset.id === connectorStart) {
+                    el.classList.add('selected');
+                } else {
+                    el.classList.remove('selected');
+                }
+            });
+        }
+
+        function hydrateNotes() {
+            const stored = localStorage.getItem(`${STORAGE_PREFIX}Notes`);
+            if (stored) {
+                notesField.value = stored;
+            } else {
+                notesField.value =
+`Research Program: _______________________
+Lab/Research Group: _____________________
+Target Student Level: ___________________
+
+Before (Recruitment & Early Exposure):
+- How will you introduce research to prospective students?
+- What early exposure activities will you use in courses?
+
+Onboarding (First Weeks):
+- Initial training workshops to deploy
+- Lab safety and procedures introduction
+
+During Research (Ongoing Support):
+- Weekly/biweekly check-in structure
+- Goal-setting and accountability rituals
+
+Skill Building:
+- Which workshops address gaps in your students' skills?
+- Timing of workshop deployment
+
+Communication & Dissemination:
+- When will students present their work?
+- Target venues for dissemination (posters, papers, etc.)
+
+Reflection:
+- How will you assess student growth?
+- Post-experience reflection activities`;
+            }
+
+            notesField.addEventListener('input', () => {
+                localStorage.setItem(`${STORAGE_PREFIX}Notes`, notesField.value);
+            });
+        }
+
+        function attachGlobalEvents() {
+            workspace.addEventListener('dblclick', event => {
+                if (event.target !== workspace) return;
+                const scrollerRect = canvasScroller.getBoundingClientRect();
+                const x = (event.clientX - scrollerRect.left + canvasScroller.scrollLeft) / currentZoom;
+                const y = (event.clientY - scrollerRect.top + canvasScroller.scrollTop) / currentZoom;
+                spawnBlockFromCard(
+                    {
+                        id: 'blank',
+                        title: 'New Block',
+                        body: '',
+                        longBody: '',
+                        color: palette.custom,
+                        link: '',
+                        video: '',
+                        emTags: []
+                    },
+                    'Custom',
+                    x - 160,
+                    y - 40
+                );
+            });
+
+            workspace.addEventListener('click', event => {
+                if (event.target === workspace) {
+                    selectedBlockId = null;
+                    highlightSelection();
+                    if (connectorStart) {
+                        cancelConnector();
+                    }
+                }
+            });
+
+            document.addEventListener('keydown', event => {
+                if (event.key === 'Escape') {
+                    if (activeConnectionEditor) {
+                        closeConnectionLabelEditor(true);
+                    } else if (connectorStart) {
+                        cancelConnector();
+                    } else if (inspectorOverlay.classList.contains('visible')) {
+                        closeInspector();
+                    }
+                }
+                
+                if ((event.key === 'Delete' || event.key === 'Backspace') && selectedBlockId) {
+                    const activeEl = document.activeElement;
+                    const isTyping = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA');
+                    const inspectorOpen = inspectorOverlay.classList.contains('visible');
+
+                    if (!isTyping && !inspectorOpen) {
+                        event.preventDefault();
+                        blocks = blocks.filter(b => b.id !== selectedBlockId);
+                        connections = connections.filter(conn => conn.from !== selectedBlockId && conn.to !== selectedBlockId);
+                        selectedBlockId = null;
+                        renderBlocks();
+                        saveState();
+                        statusText.textContent = 'Block deleted.';
+                    }
+                }
+
+                if (event.key === 'z' && (event.ctrlKey || event.metaKey) && !event.shiftKey) {
+                    const activeEl = document.activeElement;
+                    const isTyping = activeEl && (activeEl.tagName === 'INPUT' || activeEl.tagName === 'TEXTAREA');
+                    if (!isTyping) {
+                        event.preventDefault();
+                        undo();
+                    }
+                }
+            });
+
+            document.getElementById('undoBtn').onclick = undo;
+
+            document.getElementById('toggleNotesBtn').onclick = () => {
+                notesPanel.classList.toggle('collapsed');
+            };
+
+            document.getElementById('toggleLibraryBtn').onclick = () => {
+                libraryPanel.classList.toggle('collapsed');
+            };
+
+            document.getElementById('toggleFaqBtn').onclick = () => {
+                document.getElementById('faqSection').classList.toggle('collapsed');
+            };
+
+            document.getElementById('blankBlockBtn').onclick = () => {
+                spawnBlockFromCard(
+                    {
+                        id: `blank-${Date.now()}`,
+                        title: 'Blank Block',
+                        body: '',
+                        longBody: '',
+                        color: palette.custom,
+                        link: '',
+                        video: '',
+                        emTags: []
+                    },
+                    'Custom',
+                    100 + Math.random() * 400,
+                    120 + Math.random() * 300
+                );
+            };
+
+            document.getElementById('resetBtn').onclick = () => {
+                if (!confirm('Clear all blocks and connections?')) return;
+                blocks = [];
+                connections = [];
+                blockCount = 0;
+                connectionCount = 0;
+                renderBlocks();
+                saveState();
+            };
+
+            document.getElementById('saveBtn').onclick = () => {
+                const payload = {
+                    blocks,
+                    connections,
+                    notes: notesField.value
+                };
+                const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'apprentice-research-layout.json';
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                URL.revokeObjectURL(url);
+            };
+
+            document.getElementById('loadBtn').onclick = () => {
+                loadInput.click();
+            };
+
+            loadInput.addEventListener('change', event => {
+                const file = event.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = e => {
+                    try {
+                        const data = JSON.parse(e.target.result);
+                        blocks = data.blocks || [];
+                        connections = data.connections || [];
+                        notesField.value = data.notes || notesField.value;
+                        blockCount = blocks.length;
+                        connectionCount = connections.length;
+                        renderBlocks();
+                        renderConnections();
+                        localStorage.setItem(`${STORAGE_PREFIX}Notes`, notesField.value);
+                    } catch (err) {
+                        alert('Could not parse file.');
+                    }
+                };
+                reader.readAsText(file);
+                loadInput.value = '';
+            });
+
+            closeInspectorBtn.addEventListener('click', closeInspector);
+        }
+
+        function saveState() {
+            if (isUndoing) return;
+            const snapshot = JSON.stringify({ blocks, connections });
+            undoStack.push(snapshot);
+            if (undoStack.length > MAX_UNDO) undoStack.shift();
+            localStorage.setItem(`${STORAGE_PREFIX}State`, snapshot);
+        }
+
+        function undo() {
+            if (undoStack.length < 2) return;
+            isUndoing = true;
+            undoStack.pop(); // discard current state
+            const previous = undoStack[undoStack.length - 1];
+            const data = JSON.parse(previous);
+            blocks = data.blocks;
+            connections = data.connections;
+            blockCount = blocks.reduce((max, b) => Math.max(max, parseInt(b.id.replace('block-', '')) || 0), 0);
+            connectionCount = connections.reduce((max, c) => Math.max(max, parseInt(c.id.replace('conn-', '')) || 0), 0);
+            renderBlocks();
+            localStorage.setItem(`${STORAGE_PREFIX}State`, previous);
+            statusText.textContent = 'Undo.';
+            setTimeout(() => { isUndoing = false; }, 400);
+        }
+
+        function hydrateState() {
+            const stored = localStorage.getItem(`${STORAGE_PREFIX}State`);
+            if (!stored) {
+                renderBlocks();
+                undoStack.push(JSON.stringify({ blocks, connections }));
+                return;
+            }
+            try {
+                const { blocks: savedBlocks = [], connections: savedConnections = [] } = JSON.parse(stored);
+                blocks = savedBlocks;
+                connections = savedConnections;
+                blockCount = blocks.reduce((max, b) => Math.max(max, parseInt(b.id.replace('block-', '')) || 0), 0);
+                connectionCount = connections.reduce((max, c) => Math.max(max, parseInt(c.id.replace('conn-', '')) || 0), 0);
+                renderBlocks();
+                undoStack.push(stored);
+            } catch {
+                renderBlocks();
+                undoStack.push(JSON.stringify({ blocks, connections }));
+            }
+        }
+
+        function clamp(value, min, max) {
+            return Math.min(Math.max(value, min), max);
+        }
+
+        function getMinZoom() {
+            const wrapperRect = workspaceWrapper.getBoundingClientRect();
+            const scaleX = wrapperRect.width / CANVAS_WIDTH;
+            const scaleY = wrapperRect.height / CANVAS_HEIGHT;
+            return Math.min(scaleX, scaleY, 1);
+        }
+
+        function applyZoom() {
+            const minZoom = getMinZoom();
+            const isFitView = currentZoom <= minZoom + 0.01;
+
+            if (isFitView) {
+                canvasScroller.classList.add('fit-view');
+            } else {
+                canvasScroller.classList.remove('fit-view');
+            }
+
+            canvasContainer.style.transform = `scale(${currentZoom})`;
+
+            // Negative margins shrink the layout box to match the visual
+            // (scaled) size, since CSS transform doesn't affect layout.
+            // This gives correct scroll area AND lets flexbox center in fit-view.
+            const unusedW = CANVAS_WIDTH  * (1 - currentZoom);
+            const unusedH = CANVAS_HEIGHT * (1 - currentZoom);
+            canvasContainer.style.marginRight  = `${-unusedW}px`;
+            canvasContainer.style.marginBottom = `${-unusedH}px`;
+
+            zoomLevelDisplay.textContent = `${Math.round(currentZoom * 100)}%`;
+        }
+
+        function setZoom(level) {
+            const minZoom = getMinZoom();
+            currentZoom = clamp(level, minZoom, 1.5);
+            applyZoom();
+            localStorage.setItem(`${STORAGE_PREFIX}Zoom`, currentZoom.toString());
+        }
+
+        function zoomIn() {
+            setZoom(currentZoom + 0.1);
+        }
+
+        function zoomOut() {
+            setZoom(currentZoom - 0.1);
+        }
+
+        function zoomFit() {
+            setZoom(getMinZoom());
+        }
+
+        function attachZoomEvents() {
+            document.getElementById('zoomInBtn').onclick = zoomIn;
+            document.getElementById('zoomOutBtn').onclick = zoomOut;
+            document.getElementById('zoomFitBtn').onclick = zoomFit;
+
+            // Always start with fit-to-view zoom level
+            currentZoom = getMinZoom();
+
+            canvasScroller.addEventListener('wheel', e => {
+                if (e.ctrlKey) {
+                    e.preventDefault();
+                    const delta = e.deltaY > 0 ? -0.05 : 0.05;
+                    setZoom(currentZoom + delta);
+                }
+            }, { passive: false });
+
+            window.addEventListener('resize', () => {
+                const minZoom = getMinZoom();
+                if (currentZoom < minZoom) {
+                    setZoom(minZoom);
+                }
+            });
+        }
+
+        // Make inspector modal draggable by its header
+        const inspectorModal = document.querySelector('.inspector-modal');
+        const inspectorHeader = document.querySelector('.inspector-modal-header');
+        inspectorHeader.addEventListener('pointerdown', e => {
+            if (e.target.tagName === 'BUTTON') return;
+            e.preventDefault();
+            const startX = e.clientX;
+            const startY = e.clientY;
+            const rect = inspectorModal.getBoundingClientRect();
+            const wrapperRect = workspaceWrapper.getBoundingClientRect();
+            const origLeft = rect.left - wrapperRect.left;
+            const origTop = rect.top - wrapperRect.top;
+            inspectorModal.style.right = 'auto';
+            inspectorModal.style.left = origLeft + 'px';
+            inspectorModal.style.top = origTop + 'px';
+
+            const onMove = ev => {
+                const dx = ev.clientX - startX;
+                const dy = ev.clientY - startY;
+                inspectorModal.style.left = (origLeft + dx) + 'px';
+                inspectorModal.style.top = (origTop + dy) + 'px';
+            };
+            const onUp = () => {
+                document.removeEventListener('pointermove', onMove);
+                document.removeEventListener('pointerup', onUp);
+            };
+            document.addEventListener('pointermove', onMove);
+            document.addEventListener('pointerup', onUp);
+        });
+
+        init();
+    </script>
+</body>
+</html>

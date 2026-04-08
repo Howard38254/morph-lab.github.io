@@ -164,5 +164,15 @@ initial goals can help ensure you stay on track, and reassessing those goals can
 
 ---
 
+## Mentorship Builder
+
+You can use the following tool developed for the [KEEN Undergraduate Research Training Workshop](https://engineeringunleashed.com/card/3619)
+to build and visualize a research plan with associated helpful resources. You can also drag and drop activities to create
+your own timeline and document your goals and strategies. Feel free to save your own JSON file to revisit later.
+
+<iframe src="{{ site.baseurl }}/assets/ure-tool/builder.html" style="width: 100%; height: 800px; border: none; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);"></iframe>
+
+---
+
 Much of the framework presented here was adapted from the [KEEN Framework](https://engineeringunleashed.com/framework).
 
