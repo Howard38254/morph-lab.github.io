@@ -42,9 +42,11 @@ undergrads:
     role: "Undergraduate Researcher"
     institution: "Rose-Hulman Institute of Technology"
     bio: >-
-      Research interests and brief description.
-    photo: /assets/images/people/placeholder.jpg
-    email: ""
+      Hi, I'm Howard Huang. I'm a 2nd year at Rose-Hulman Institute of Technology studying mechanical engineering. I study how
+      changes in inertia and mass distribution affect flight performance. My current research focuses on designing morphing-wing UAVs to 
+      explore inertial affects on agile maneuverability.
+    photo: /assets/images/people/Huang_Howard.jpg
+    email: "huangh6@rose-hulman.edu"
     joined: 2025
 
   - name: "Claire Slusser"
