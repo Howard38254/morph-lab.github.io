@@ -8,8 +8,8 @@ baseurl: "/morph-lab.github.io"
 repository: "haughn-morph-lab/morph-lab.github.io"
 
 # Theme
-theme: "minimal-mistakes-jekyll"
-# remote_theme: "mmistakes/minimal-mistakes"
+# theme: "minimal-mistakes-jekyll"
+remote_theme: "mmistakes/minimal-mistakes"
 minimal_mistakes_skin: "contrast"
 
 
@@ -79,7 +79,7 @@ defaults:
 plugins:
   - jekyll-feed
   - jekyll-include-cache
-  # - jekyll-remote-theme
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
 
