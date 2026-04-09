@@ -164,7 +164,7 @@ initial goals can help ensure you stay on track, and reassessing those goals can
 
 ---
 
-## Mentorship Builder
+## Project Planner and Resources
 
 You can use the following tool developed for the [KEEN Undergraduate Research Training Workshop](https://engineeringunleashed.com/card/3619)
 to build and visualize a research plan with associated helpful resources. You can also drag and drop activities to create
