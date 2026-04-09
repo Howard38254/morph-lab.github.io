@@ -1,0 +1,510 @@
+{
+  "blocks": [
+    {
+      "id": "block-2",
+      "cardId": "A1",
+      "title": "\"What is Research?\"",
+      "body": "Quick reflection on research curiosity",
+      "longBody": "10 min total. Video introduces research concepts; minute paper prompts students to reflect on questions they're curious about, topics they'd pursue, and impact they want to have.",
+      "category": "Early Exposure (Card #3165)",
+      "color": "#2563eb",
+      "link": "https://engineeringunleashed.com/card/3165",
+      "video": "https://www.youtube.com/watch?v=wOkVx4Cswdo",
+      "emTags": [
+        "curiosity"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 2082.71897040503,
+      "y": 86.07029173165404,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-3",
+      "cardId": "A4",
+      "title": "\"EM in Research\"",
+      "body": "Connect faculty research to daily problems",
+      "longBody": "45-60 min. Students find faculty research interests, list daily problems, brainstorm connections. Emphasizes EM connections between research and real-world impact.",
+      "category": "Early Exposure (Card #3165)",
+      "color": "#2563eb",
+      "link": "https://engineeringunleashed.com/card/3165",
+      "video": "https://www.youtube.com/watch?v=Pvk6kVpLS3M",
+      "emTags": [
+        "connections",
+        "value"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 1477.704403441139,
+      "y": 86.07029173165402,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-6",
+      "cardId": "B6",
+      "title": "Maximizing Research Impact",
+      "body": "Dissemination planning for research results",
+      "longBody": "60 min workshop. Describe impact level, list dissemination options (academic and non-academic), identify appropriate venues, prepare dissemination plan.",
+      "category": "Training Workshops (Card #3619)",
+      "color": "#14b8a6",
+      "link": "https://engineeringunleashed.com/card/3619",
+      "video": "https://www.youtube.com/watch?v=MRmM2bOORUs",
+      "emTags": [
+        "value"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 2195.4486330596515,
+      "y": 1544.8658931952168,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-7",
+      "cardId": "B1",
+      "title": "Framing Your Research Question",
+      "body": "Apply EM framework to formulate research questions",
+      "longBody": "60 min workshop. Uses mind mapping to identify open questions, connects broad statements to specific claims, identifies stakeholders and their interests.",
+      "category": "Training Workshops (Card #3619)",
+      "color": "#14b8a6",
+      "link": "https://engineeringunleashed.com/card/3619",
+      "video": "https://www.youtube.com/watch?v=m9S9KTn9aSE",
+      "emTags": [
+        "curiosity",
+        "connections"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 1390.8715654826717,
+      "y": 499.14426444189405,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-8",
+      "cardId": "B2",
+      "title": "Thriving in a Research Environment",
+      "body": "SMART goals for research success",
+      "longBody": "60 min workshop. Practice writing SMART goals connected to stakeholder interests, prepare goal-setting plan with reflection frequency and accountability.",
+      "category": "Training Workshops (Card #3619)",
+      "color": "#14b8a6",
+      "link": "https://engineeringunleashed.com/card/3619",
+      "video": "https://www.youtube.com/watch?v=rL5caiGEwfU",
+      "emTags": [
+        "value",
+        "connections"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 2184.4621013703736,
+      "y": 502.7148872409092,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-9",
+      "cardId": "blank",
+      "title": "Framework Development (Weeks 1-2)",
+      "body": "Use SMART goals and the EM framework to develop a plan of action specific to reaching your stakeholder's needs",
+      "longBody": "",
+      "category": "Research Prep",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1785.189959094788,
+      "y": 505.4895750566492,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-11",
+      "cardId": "A6",
+      "title": "\"How Does Research Get Done?\"",
+      "body": "Understand research funding process",
+      "longBody": "15-20 min class + homework. Reflection on research process, video on university research, homework to find funding agency and funded project in area of interest.",
+      "category": "Early Exposure (Card #3165)",
+      "color": "#2563eb",
+      "link": "https://engineeringunleashed.com/card/3165",
+      "video": "https://www.youtube.com/watch?v=065UM2wzhYU",
+      "emTags": [
+        "curiosity",
+        "connections"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 1785.7687138891342,
+      "y": 301.9654488292478,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-12",
+      "cardId": "blank",
+      "title": "Tool/Experiment Development (Weeks 2-4)",
+      "body": "Begin assembly of planned experiment or research tool for later data collection",
+      "longBody": "",
+      "category": "Active Research",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1784.2090187653885,
+      "y": 701.4618340641341,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-13",
+      "cardId": "B3",
+      "title": "Building Resilience in Research (Week 5)",
+      "body": "Communication skills for stressful situations",
+      "longBody": "60 min workshop. Identify passive/aggressive/assertive responses, practice empathic listening, role-play assertive communication for research contexts.",
+      "category": "Training Workshops (Card #3619)",
+      "color": "#14b8a6",
+      "link": "https://engineeringunleashed.com/card/3619",
+      "video": "https://www.youtube.com/watch?v=Y2QOFf3Tozs",
+      "emTags": [
+        "connections"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 1393.412200935817,
+      "y": 911.8160516170803,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-14",
+      "cardId": "blank",
+      "title": "Troubleshooting and Iteration (Weeks 3-5)",
+      "body": "Whether it be a tool or experiment, it is likely not going to work on the first try. Here is where we will make improvements to better investigate our research question.",
+      "longBody": "",
+      "category": "Active Research",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1785.9943301648962,
+      "y": 920.5254284256889,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-15",
+      "cardId": "blank",
+      "title": "Data Collection (Weeks 4-6)",
+      "body": "Use of tool or experiment for active data collection.",
+      "longBody": "",
+      "category": "Active Research",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1784.0324495060966,
+      "y": 1117.3314867131633,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-16",
+      "cardId": "blank",
+      "title": "Visual Synthesis (Weeks 6-8)",
+      "body": "Convert Data collected from tool or experiment into digestible visuals for effective communication",
+      "longBody": "",
+      "category": "Active Research",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1789.172576832151,
+      "y": 1539.713356973995,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-17",
+      "cardId": "B5",
+      "title": "Effective Data Visualization",
+      "body": "Communicate data insights to stakeholders",
+      "longBody": "60 min workshop. Evaluate visualization effectiveness, learn key principles, communicate insights for decisions, recognize ethical considerations.",
+      "category": "Training Workshops (Card #3619)",
+      "color": "#14b8a6",
+      "link": "https://engineeringunleashed.com/card/3619",
+      "video": "https://www.youtube.com/watch?v=t9K4u5yFg-8",
+      "emTags": [
+        "value",
+        "connections"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 1392.0094562647753,
+      "y": 1533.8977541371155,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-18",
+      "cardId": "B7",
+      "title": "Crafting Your Research Story",
+      "body": "Story as reflection and identity formation",
+      "longBody": "60 min workshop. Craft personal and research stories, share and provide feedback, learn components of memorable stories. Builds research identity.",
+      "category": "Training Workshops (Card #3619)",
+      "color": "#14b8a6",
+      "link": "https://engineeringunleashed.com/card/3619",
+      "video": "",
+      "emTags": [
+        "curiosity",
+        "value"
+      ],
+      "notes": "",
+      "expanded": false,
+      "x": 2195.968531434233,
+      "y": 1763.38874420019,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-19",
+      "cardId": "blank",
+      "title": "Data Analysis (Weeks 5-7)",
+      "body": "Initial Data interpretation to develop understanding of",
+      "longBody": "",
+      "category": "Active Research",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1786.8085106382975,
+      "y": 1324.5833333333333,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    },
+    {
+      "id": "block-20",
+      "cardId": "blank",
+      "title": "Paper/Poster Development",
+      "body": "Synthesis of final communicative deliverable for presenting the findings in this work",
+      "longBody": "",
+      "category": "Research Dissemination",
+      "color": "#cbd5f5",
+      "link": "",
+      "video": "",
+      "emTags": [],
+      "notes": "",
+      "expanded": false,
+      "x": 1792.1153978203504,
+      "y": 1759.345896726602,
+      "w": 320,
+      "h": 150,
+      "scale": 1
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn-1",
+      "from": "block-3",
+      "to": "block-2",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-2",
+      "from": "block-2",
+      "to": "block-3",
+      "label": "Week 0",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-5",
+      "from": "block-2",
+      "to": "block-11",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-6",
+      "from": "block-3",
+      "to": "block-11",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-7",
+      "from": "block-11",
+      "to": "block-3",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-8",
+      "from": "block-11",
+      "to": "block-2",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-9",
+      "from": "block-9",
+      "to": "block-12",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-13",
+      "from": "block-11",
+      "to": "block-9",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-14",
+      "from": "block-7",
+      "to": "block-9",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-15",
+      "from": "block-9",
+      "to": "block-7",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-16",
+      "from": "block-9",
+      "to": "block-8",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-17",
+      "from": "block-8",
+      "to": "block-9",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-18",
+      "from": "block-13",
+      "to": "block-14",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-19",
+      "from": "block-14",
+      "to": "block-13",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-20",
+      "from": "block-12",
+      "to": "block-14",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-21",
+      "from": "block-14",
+      "to": "block-15",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-24",
+      "from": "block-17",
+      "to": "block-16",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-25",
+      "from": "block-16",
+      "to": "block-17",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-26",
+      "from": "block-16",
+      "to": "block-6",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-27",
+      "from": "block-6",
+      "to": "block-16",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-28",
+      "from": "block-15",
+      "to": "block-19",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-29",
+      "from": "block-19",
+      "to": "block-16",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-30",
+      "from": "block-16",
+      "to": "block-20",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-31",
+      "from": "block-20",
+      "to": "block-18",
+      "label": "",
+      "color": "#f8fafc"
+    },
+    {
+      "id": "conn-32",
+      "from": "block-18",
+      "to": "block-20",
+      "label": "",
+      "color": "#f8fafc"
+    }
+  ],
+  "notes": "Research Program: _______________________\nLab/Research Group: _____________________\nTarget Student Level: ___________________\n\nBefore (Recruitment & Early Exposure):\n- How will you introduce research to prospective students?\n- What early exposure activities will you use in courses?\n\nOnboarding (First Weeks):\n- Initial training workshops to deploy\n- Lab safety and procedures introduction\n\nDuring Research (Ongoing Support):\n- Weekly/biweekly check-in structure\n- Goal-setting and accountability rituals\n\nSkill Building:\n- Which workshops address gaps in your students' skills?\n- Timing of workshop deployment\n\nCommunication & Dissemination:\n- When will students present their work?\n- Target venues for dissemination (posters, papers, etc.)\n\nReflection:\n- How will you assess student growth?\n- Post-experience reflection activities"
+}
